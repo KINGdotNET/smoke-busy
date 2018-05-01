@@ -1,10 +1,10 @@
 import { createClient } from 'lightrpc';
 
 const options = {
-  timeout: 15000,
+  timeout: 30000,
 };
 
-const steemUrl = process.env.STEEMJS_URL || 'https://api.steemit.com';
+const steemUrl = process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws';
 
 const client = createClient(steemUrl, options);
 client.sendAsync = (message, params) =>

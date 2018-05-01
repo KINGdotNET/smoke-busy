@@ -11,26 +11,28 @@ const PostedFrom = ({ post }) => {
     return null;
   }
 
-  return (
-    <span className="PostedFrom">
-      <span className="PostedFrom__bullet" />
-      <BTooltip
-        title={
-          version && (
-            <span>
-              <FormattedMessage
-                id="posted_from_tooltip"
-                defaultMessage={'Version: {version}'}
-                values={{ version }}
-              />
-            </span>
-          )
-        }
-      >
-        <span className="PostedFrom__text">{appName}</span>
-      </BTooltip>
-    </span>
-  );
+  return null;
+
+  // return (
+  //   <span className="PostedFrom">
+  //     <span className="PostedFrom__bullet" />
+  //     <BTooltip
+  //       title={
+  //         version && (
+  //           <span>
+  //             <FormattedMessage
+  //               id="posted_from_tooltip"
+  //               defaultMessage={'Version: {version}'}
+  //               values={{ version }}
+  //             />
+  //           </span>
+  //         )
+  //       }
+  //     >
+  //       <span className="PostedFrom__text">{appName}</span>
+  //     </BTooltip>
+  //   </span>
+  // );
 };
 
 PostedFrom.propTypes = {

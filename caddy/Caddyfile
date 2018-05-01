@@ -1,0 +1,15 @@
+dev.whaleshares.net:8888 {
+	tls off
+    cors
+
+    # busy
+    proxy / localhost:3000 {
+    	websocket
+    }
+
+	# server image upload
+	proxy /ws http://51.15.137.162:8090 {
+		without /ws
+		websocket
+	}
+}
