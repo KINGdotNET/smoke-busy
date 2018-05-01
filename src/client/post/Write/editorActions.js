@@ -83,7 +83,6 @@ const requiredFields = 'parentAuthor,parentPermlink,author,permlink,title,body,j
 );
 
 const broadcastComment = (
-  steemConnectAPI,
   parentAuthor,
   parentPermlink,
   author,
@@ -153,7 +152,9 @@ const broadcastComment = (
     ]);
   }
 
-  return steemConnectAPI.broadcast(operations);
+  // return steemConnectAPI.broadcast(operations);
+  // TODO: need to broadcast operations here
+  return {};
 };
 
 export function createPost(postData) {
@@ -161,7 +162,7 @@ export function createPost(postData) {
     assert(postData[field] != null, `Developer Error: Missing required field ${field}`);
   });
 
-  return (dispatch, getState, { steemConnectAPI }) => {
+  return (dispatch, getState) => {
     const {
       parentAuthor,
       parentPermlink,
@@ -197,7 +198,6 @@ export function createPost(postData) {
       payload: {
         promise: getPermLink.then(permlink =>
           broadcastComment(
-            steemConnectAPI,
             parentAuthor,
             parentPermlink,
             author,

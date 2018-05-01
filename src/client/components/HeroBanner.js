@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import SteemConnect from '../steemConnectAPI';
 import './HeroBanner.less';
 
 const HeroBanner = ({ visible, location, onCloseClick }) => {
@@ -33,7 +32,7 @@ const HeroBanner = ({ visible, location, onCloseClick }) => {
             </a>
             <a
               className="HeroBanner__container__content__buttons__button HeroBanner__secondary"
-              href={SteemConnect.getLoginURL(next)}
+              href="###"
             >
               <FormattedMessage id="login" defaultMessage="Log in" />
             </a>

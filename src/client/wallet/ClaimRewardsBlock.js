@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
-import SteemConnect from '../steemConnectAPI';
 import { getAuthenticatedUser } from '../reducers';
 import { getUserAccountHistory } from './walletActions';
 import { reload } from '../auth/authActions';
@@ -49,19 +48,19 @@ class ClaimRewardsBlock extends Component {
     this.setState({
       loading: true,
     });
-    SteemConnect.claimRewardBalance(name, steemBalance, sbdBalance, vestingBalance, err => {
-      if (!err) {
-        this.setState({
-          loading: false,
-          rewardClaimed: true,
-        });
-        this.props.getUserAccountHistory(name).then(() => this.props.reload());
-      } else {
-        this.setState({
-          loading: false,
-        });
-      }
-    });
+    // SteemConnect.claimRewardBalance(name, steemBalance, sbdBalance, vestingBalance, err => {
+    //   if (!err) {
+    //     this.setState({
+    //       loading: false,
+    //       rewardClaimed: true,
+    //     });
+    //     this.props.getUserAccountHistory(name).then(() => this.props.reload());
+    //   } else {
+    //     this.setState({
+    //       loading: false,
+    //     });
+    //   }
+    // });
   };
 
   renderReward = (value, currency, rewardField) => (

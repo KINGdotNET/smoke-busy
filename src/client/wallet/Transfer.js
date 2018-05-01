@@ -6,7 +6,6 @@ import _ from 'lodash';
 import { Form, Input, Radio, Modal } from 'antd';
 import { STEEM, SBD } from '../../common/constants/cryptos';
 import steemAPI from '../steemAPI';
-import SteemConnect from '../steemConnectAPI';
 import { getCryptoPriceHistory } from '../app/appActions';
 import { closeTransfer } from './walletActions';
 import {
@@ -150,7 +149,7 @@ export default class Transfer extends React.Component {
         };
         if (values.memo) transferQuery.memo = values.memo;
 
-        const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
+        const win = window.open("###transfer", '_blank');
         win.focus();
         this.props.closeTransfer();
       }

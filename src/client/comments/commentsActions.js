@@ -77,11 +77,7 @@ export const getComments = (postId, reload = false, focusedComment = undefined) 
   });
 };
 
-export const sendComment = (parentPost, body, isUpdating = false, originalComment) => (
-  dispatch,
-  getState,
-  { steemConnectAPI },
-) => {
+export const sendComment = (parentPost, body, isUpdating = false, originalComment) => ( dispatch, getState ) => {
   const { category, id, permlink: parentPermlink, author: parentAuthor } = parentPost;
   const { auth } = getState();
 
@@ -104,23 +100,23 @@ export const sendComment = (parentPost, body, isUpdating = false, originalCommen
   return dispatch({
     type: SEND_COMMENT,
     payload: {
-      promise: steemConnectAPI
-        .comment(parentAuthor, parentPermlink, author, permlink, '', newBody, jsonMetadata)
-        .then(resp => {
-          const focusedComment = {
-            author: resp.result.operations[0][1].author,
-            permlink: resp.result.operations[0][1].permlink,
-          };
-          dispatch(getComments(id, true, focusedComment));
-
-          if (window.analytics) {
-            window.analytics.track('Comment', {
-              category: 'comment',
-              label: 'submit',
-              value: 3,
-            });
-          }
-        }),
+      // promise: steemConnectAPI
+      //   .comment(parentAuthor, parentPermlink, author, permlink, '', newBody, jsonMetadata)
+      //   .then(resp => {
+      //     const focusedComment = {
+      //       author: resp.result.operations[0][1].author,
+      //       permlink: resp.result.operations[0][1].permlink,
+      //     };
+      //     dispatch(getComments(id, true, focusedComment));
+      //
+      //     if (window.analytics) {
+      //       window.analytics.track('Comment', {
+      //         category: 'comment',
+      //         label: 'submit',
+      //         value: 3,
+      //       });
+      //     }
+      //   }),
     },
     meta: {
       parentId: parentPost.id,
@@ -130,11 +126,7 @@ export const sendComment = (parentPost, body, isUpdating = false, originalCommen
   });
 };
 
-export const likeComment = (commentId, weight = 10000, vote = 'like', retryCount = 0) => (
-  dispatch,
-  getState,
-  { steemAPI, steemConnectAPI },
-) => {
+export const likeComment = (commentId, weight = 10000, vote = 'like', retryCount = 0) => ( dispatch, getState, { steemAPI } ) => {
   const { auth, comments } = getState();
 
   if (!auth.isAuthenticated) {
@@ -147,14 +139,14 @@ export const likeComment = (commentId, weight = 10000, vote = 'like', retryCount
   dispatch({
     type: LIKE_COMMENT,
     payload: {
-      promise: steemConnectAPI.vote(voter, author, permlink, weight).then(res => {
-        // reload comment data to fetch payout after vote
-        steemAPI.sendAsync('get_content', [author, permlink]).then(data => {
-          dispatch(reloadExistingComment(data));
-          return data;
-        });
-        return res;
-      }),
+      // promise: steemConnectAPI.vote(voter, author, permlink, weight).then(res => {
+      //   // reload comment data to fetch payout after vote
+      //   steemAPI.sendAsync('get_content', [author, permlink]).then(data => {
+      //     dispatch(reloadExistingComment(data));
+      //     return data;
+      //   });
+      //   return res;
+      // }),
     },
     meta: { commentId, voter, weight, vote, isRetry: retryCount > 0 },
   }).catch(err => {
