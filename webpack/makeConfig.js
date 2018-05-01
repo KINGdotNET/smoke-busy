@@ -53,7 +53,7 @@ function makePlugins(options) {
         STEEMCONNECT_HOST: JSON.stringify(
           process.env.STEEMCONNECT_HOST || 'https://steemconnect.com',
         ),
-        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://api.steemit.com'),
+        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws'),
         IS_BROWSER: JSON.stringify(true),
         SIGNUP_URL: JSON.stringify(
           process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy',

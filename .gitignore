@@ -41,3 +41,5 @@ node_modules
 .tern-port
 .envrc
 busy.server.js
+.env
+setenv.sh

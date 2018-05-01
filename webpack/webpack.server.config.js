@@ -52,7 +52,7 @@ module.exports = {
         process.env.STEEMCONNECT_HOST || 'https://steemconnect.com',
       ),
       'process.env.STEEMJS_URL': JSON.stringify(
-        process.env.STEEMJS_URL || 'https://api.steemit.com',
+        process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws',
       ),
       'process.env.IS_BROWSER': JSON.stringify(false),
       'process.env.SIGNUP_URL': JSON.stringify(
