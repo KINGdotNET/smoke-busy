@@ -23,10 +23,11 @@ export const BUSY_LOGIN = createAsyncActionType('@auth/BUSY_LOGIN');
 
 const loginError = createAction(LOGIN_ERROR);
 
-export const login = (username, postingKey) => async (dispatch, getState) => {
+export const loginWithPostingKey = (username, postingKey) => async (dispatch, getState) => {
   let account = await steemAPI.sendAsync('get_accounts', [[username]])
     .then(apiRes => (apiRes[0]));
 
+  // dispatch login OK
   dispatch({
     type: LOGIN_SUCCESS,
     meta: {
@@ -39,30 +40,31 @@ export const login = (username, postingKey) => async (dispatch, getState) => {
     },
   });
 
+  // redirect to feed page
   dispatch(push('/'));
 };
 
-// export const login = () => (dispatch, getState) => {
-//   let promise = Promise.resolve(null);
-//
-//   if (getIsAuthenticated(getState())) {
-//     promise = Promise.resolve(null);
-//   // } else if (!steemConnectAPI.options.accessToken) {
-//   //   promise = Promise.reject(new Error('There is not accessToken present'));
-//   // } else {
-//   //   promise = steemConnectAPI.me().catch(() => dispatch(loginError()));
-//   }
-//
-//   return dispatch({
-//     type: LOGIN,
-//     payload: {
-//       promise,
-//     },
-//     meta: {
-//       refresh: getIsAuthenticated(getState()),
-//     },
-//   }).catch(() => dispatch(loginError()));
-// };
+export const login = () => (dispatch, getState) => {
+  let promise = Promise.resolve(null);
+
+  if (getIsAuthenticated(getState())) {
+    promise = Promise.resolve(null);
+  // } else if (!steemConnectAPI.options.accessToken) {
+  //   promise = Promise.reject(new Error('There is not accessToken present'));
+  // } else {
+  //   promise = steemConnectAPI.me().catch(() => dispatch(loginError()));
+  }
+
+  return dispatch({
+    type: LOGIN,
+    payload: {
+      promise,
+    },
+    meta: {
+      refresh: getIsAuthenticated(getState()),
+    },
+  }).catch(() => dispatch(loginError()));
+};
 
 export const getCurrentUserFollowing = () => dispatch => dispatch(getFollowing());
 

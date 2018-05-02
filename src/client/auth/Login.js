@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import {login, reload} from "../auth/authActions";
+import {loginWithPostingKey, reload} from "../auth/authActions";
 import {connect} from "react-redux";
 import {getAuthenticatedUser} from "../reducers";
 import {getUserAccountHistory} from "../wallet/walletActions";
@@ -9,7 +9,7 @@ import {getUserAccountHistory} from "../wallet/walletActions";
   state => ({
   }),
   {
-    login
+    loginWithPostingKey
   },
 )
 class Login extends React.Component {
@@ -27,8 +27,7 @@ class Login extends React.Component {
   };
 
   handleSubmit = (event) => {
-    console.log("TestPage.handleSubmit: ");
-    this.props.login(this.state.username, this.state.postingKey);
+    this.props.loginWithPostingKey(this.state.username, this.state.postingKey);
   };
 
   render() {

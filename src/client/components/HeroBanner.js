@@ -32,7 +32,7 @@ const HeroBanner = ({ visible, location, onCloseClick }) => {
             </a>
             <Link
               className="HeroBanner__container__content__buttons__button HeroBanner__secondary"
-              href="/login"
+              to="/login"
             >
               <FormattedMessage id="login" defaultMessage="Log in" />
             </Link>
