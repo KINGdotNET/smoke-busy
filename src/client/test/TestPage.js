@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import {loginTest, reload} from "../auth/authActions";
+import {login, reload} from "../auth/authActions";
 import {connect} from "react-redux";
 import {getAuthenticatedUser} from "../reducers";
 import {getUserAccountHistory} from "../wallet/walletActions";
@@ -9,7 +9,7 @@ import {getUserAccountHistory} from "../wallet/walletActions";
   state => ({
   }),
   {
-    loginTest
+    login
   },
 )
 class TestPage extends React.Component {
@@ -28,7 +28,7 @@ class TestPage extends React.Component {
 
   handleSubmit = (event) => {
     console.log("TestPage.handleSubmit: ");
-    this.props.loginTest();
+    this.props.login(this.state.username, this.state.postingKey);
   };
 
   render() {
