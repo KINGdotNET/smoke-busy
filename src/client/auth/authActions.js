@@ -5,6 +5,7 @@ import { getAuthenticatedUserName, getIsAuthenticated } from '../reducers';
 import { createAsyncActionType } from '../helpers/stateHelpers';
 import { getFollowing } from '../user/userActions';
 import busyAPI from '../busyAPI';
+import {notify} from "../app/Notification/notificationActions";
 
 export const LOGIN = '@auth/LOGIN';
 export const LOGIN_START = '@auth/LOGIN_START';
@@ -24,8 +25,21 @@ export const BUSY_LOGIN = createAsyncActionType('@auth/BUSY_LOGIN');
 const loginError = createAction(LOGIN_ERROR);
 
 export const loginWithPostingKey = (username, postingKey) => async (dispatch, getState) => {
-  let account = await steemAPI.sendAsync('get_accounts', [[username]])
-    .then(apiRes => (apiRes[0]));
+  let account = null; //
+
+  // validating if key is correct
+  try {
+    account = await steemAPI.sendAsync('get_accounts', [[username]]).then(apiRes => (apiRes[0]));
+
+    let pubWif = account.posting.key_auths[0][0];
+    if (!steemAPI.chainLib.auth.wifIsValid(postingKey, pubWif)) {
+      throw new Error("Invalid key");
+    }
+  } catch (e) {
+    dispatch(notify('Invalid account or key', 'error'));
+    return;
+  }
+
 
   // dispatch login OK
   dispatch({

@@ -33,7 +33,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>TestPage</h1>
+        <h1>Login with Posting-Key</h1>
         <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
         <br />
         <input type="password" name="postingKey" value={this.state.postingKey} onChange={this.handleChange} />
