@@ -54,6 +54,13 @@ export const loginWithPostingKey = (username, postingKey) => async (dispatch, ge
     },
   });
 
+  // save to localStorage
+  const loggedin = {
+    username: username,
+    postingKey: postingKey
+  };
+  localStorage.setItem("loggedin", JSON.stringify(loggedin));
+
   // redirect to feed page
   dispatch(push('/'));
 };
