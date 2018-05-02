@@ -133,9 +133,9 @@ class Topnav extends React.Component {
             |
           </Menu.Item>
           <Menu.Item key="login">
-            <a href="###">
+            <Link to="/login">
               <FormattedMessage id="login" defaultMessage="Log in" />
-            </a>
+            </Link>
           </Menu.Item>
           <Menu.Item key="language">
             <LanguageSettings />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'antd';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import './LoginModal.less';
 
@@ -62,12 +62,13 @@ class LoginModal extends React.Component {
               defaultMessage="Login with your Steem account"
             />
           </span>
-          <a className="LoginModal__login-button" href="###">
+          <Link className="LoginModal__login-button" to="/login">
             {/*<FormattedMessage*/}
               {/*id="login_with_steemconnect"*/}
               {/*defaultMessage="Login with SteemConnect"*/}
             {/*/>*/}
-          </a>
+            Login
+          </Link>
         </div>
       </Modal>
     );

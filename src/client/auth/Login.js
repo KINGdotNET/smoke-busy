@@ -12,7 +12,7 @@ import {getUserAccountHistory} from "../wallet/walletActions";
     login
   },
 )
-class TestPage extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -45,4 +45,4 @@ class TestPage extends React.Component {
   }
 }
 
-export default withRouter(TestPage);
+export default withRouter(Login);

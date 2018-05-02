@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import './HeroBanner.less';
 
@@ -30,12 +30,12 @@ const HeroBanner = ({ visible, location, onCloseClick }) => {
             >
               <FormattedMessage id="signup" defaultMessage="Sign up" />
             </a>
-            <a
+            <Link
               className="HeroBanner__container__content__buttons__button HeroBanner__secondary"
-              href="###"
+              href="/login"
             >
               <FormattedMessage id="login" defaultMessage="Log in" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

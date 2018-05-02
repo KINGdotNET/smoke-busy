@@ -1,5 +1,6 @@
 import Cookie from 'js-cookie';
 import { createAction } from 'redux-actions';
+import { push } from 'react-router-redux';
 import { getAuthenticatedUserName, getIsAuthenticated } from '../reducers';
 import { createAsyncActionType } from '../helpers/stateHelpers';
 import { getFollowing } from '../user/userActions';
@@ -26,7 +27,7 @@ export const login = (username, postingKey) => async (dispatch, getState) => {
   let account = await steemAPI.sendAsync('get_accounts', [[username]])
     .then(apiRes => (apiRes[0]));
 
-  return dispatch({
+  dispatch({
     type: LOGIN_SUCCESS,
     meta: {
       refresh: false
@@ -37,6 +38,8 @@ export const login = (username, postingKey) => async (dispatch, getState) => {
       },
     },
   });
+
+  dispatch(push('/'));
 };
 
 // export const login = () => (dispatch, getState) => {
