@@ -10,9 +10,10 @@ localhost:8888 {
   }
 
 	# server image upload
-	# 51.15.137.162:8090 51.15.135.172:8090
-	proxy /ws 51.15.137.162:8090 51.15.135.172:8090 {
-	  fail_timeout 1m
+	# 51.15.137.162:8090 51.15.135.172:8090 192.168.1.25:8090 {
+	proxy /ws 51.15.135.172:8090 {
+	  #fail_timeout 1m
+	  timeout 30s
 		without /ws
 		websocket
 	}
