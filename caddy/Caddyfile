@@ -1,14 +1,18 @@
 localhost:8888 {
 	tls off
-    cors
+  cors
 
-    # busy
-    proxy / localhost:3000 {
-    	websocket
-    }
+  log stdout
+
+  # busy
+  proxy / localhost:3000 {
+    websocket
+  }
 
 	# server image upload
-	proxy /ws http://51.15.137.162:8090 {
+	# 51.15.137.162:8090 51.15.135.172:8090
+	proxy /ws 51.15.137.162:8090 51.15.135.172:8090 {
+	  fail_timeout 1m
 		without /ws
 		websocket
 	}

@@ -24,6 +24,39 @@ export const BUSY_LOGIN = createAsyncActionType('@auth/BUSY_LOGIN');
 
 const loginError = createAction(LOGIN_ERROR);
 
+export const login = () => (dispatch, getState) => {
+  let promise = Promise.resolve(null);
+
+  if (getIsAuthenticated(getState())) {
+    promise = Promise.resolve(null);
+  } else {
+    try {
+      let loggedin_jsonstr = localStorage.getItem("loggedin");
+      let loggedin = JSON.parse(loggedin_jsonstr);
+      let username = loggedin.username;
+
+      promise = steemAPI.sendAsync('get_accounts', [[username]])
+        .then(apiRes => ({
+          account: apiRes[0],
+          user_metadata: {}
+        }))
+        .catch(() => dispatch(loginError()));
+    } catch (e) {
+      promise = Promise.reject(new Error('There is no loggedin present'));
+    }
+  }
+
+  return dispatch({
+    type: LOGIN,
+    payload: {
+      promise,
+    },
+    meta: {
+      refresh: false,
+    },
+  }).catch(() => dispatch(loginError()));
+};
+
 export const loginWithPostingKey = (username, postingKey) => async (dispatch, getState) => {
   let account = null; //
 
@@ -39,7 +72,6 @@ export const loginWithPostingKey = (username, postingKey) => async (dispatch, ge
     dispatch(notify('Invalid account or key', 'error'));
     return;
   }
-
 
   // dispatch login OK
   dispatch({
@@ -65,27 +97,27 @@ export const loginWithPostingKey = (username, postingKey) => async (dispatch, ge
   dispatch(push('/'));
 };
 
-export const login = () => (dispatch, getState) => {
-  let promise = Promise.resolve(null);
-
-  if (getIsAuthenticated(getState())) {
-    promise = Promise.resolve(null);
-  // } else if (!steemConnectAPI.options.accessToken) {
-  //   promise = Promise.reject(new Error('There is not accessToken present'));
-  // } else {
-  //   promise = steemConnectAPI.me().catch(() => dispatch(loginError()));
-  }
-
-  return dispatch({
-    type: LOGIN,
-    payload: {
-      promise,
-    },
-    meta: {
-      refresh: getIsAuthenticated(getState()),
-    },
-  }).catch(() => dispatch(loginError()));
-};
+// export const login = () => async (dispatch, getState) => {
+//   let promise = Promise.resolve(null);
+//
+//   if (getIsAuthenticated(getState())) {
+//     promise = Promise.resolve(null);
+//   // } else if (!steemConnectAPI.options.accessToken) {
+//   //   promise = Promise.reject(new Error('There is not accessToken present'));
+//   // } else {
+//   //   promise = steemConnectAPI.me().catch(() => dispatch(loginError()));
+//   }
+//
+//   return dispatch({
+//     type: LOGIN,
+//     payload: {
+//       promise,
+//     },
+//     meta: {
+//       refresh: getIsAuthenticated(getState()),
+//     },
+//   }).catch(() => dispatch(loginError()));
+// };
 
 export const getCurrentUserFollowing = () => dispatch => dispatch(getFollowing());
 
@@ -100,6 +132,8 @@ export const reload = () => (dispatch, getState) =>
 export const logout = () => (dispatch, getState) => {
   // steemConnectAPI.revokeToken();
   Cookie.remove('access_token');
+
+  localStorage.removeItem("loggedin");
 
   dispatch({
     type: LOGOUT,

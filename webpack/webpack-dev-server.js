@@ -75,6 +75,9 @@ module.exports = {
     historyApiFallback: {
       disableDotRule: true,
     },
+    // headers: {
+    //   'Access-Control-Allow-Origin': '*',
+    // },
     proxy: {
       '/callback': 'http://localhost:3001',
       '/i/**': 'http://localhost:3001',

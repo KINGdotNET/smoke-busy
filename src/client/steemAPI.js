@@ -1,7 +1,7 @@
 import { createClient } from 'lightrpc';
 
 const options = {
-  timeout: 30000,
+  timeout: 15000,
 };
 
 const steemUrl = process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws';

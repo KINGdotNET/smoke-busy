@@ -142,11 +142,21 @@ export default class Wrapper extends React.PureComponent {
   componentDidMount() {
     const { loaded, locale, usedLocale } = this.props;
 
-    this.props.login().then(() => {
-      this.props.getFollowing();
-      this.props.getNotifications();
-      this.props.busyLogin();
-    });
+    // this.props.login().then(() => {
+    //   this.props.getFollowing();
+    //   this.props.getNotifications();
+    //   this.props.busyLogin();
+    // });
+
+    this.props.login()
+      .then(this.props.getFollowing())
+      .then(this.props.getNotifications())
+      .then(this.props.busyLogin());
+
+      // .then(this.props.getRewardFund())
+      // .then(this.props.getRebloggedList())
+      // .then(this.props.getRate())
+      // .then(this.props.getTrendingTopics());
 
     this.props.getRewardFund();
     this.props.getRebloggedList();
