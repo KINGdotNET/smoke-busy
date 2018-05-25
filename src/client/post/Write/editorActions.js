@@ -38,18 +38,18 @@ export const saveDraft = (post, redirect, intl) => dispatch => {
   return dispatch({
     type: SAVE_DRAFT,
     payload: {
-      promise: addDraftMetadata(post).catch(() => {
-        let errorMessage =
-          'Oops! You hit the storage limit of 16mb, delete some drafts to go forward';
-        if (intl) {
-          errorMessage = intl.formatMessage({
-            id: 'drafts_memory_usage_error',
-            defaultMessage:
-              'Oops! You hit the storage limit of 16mb, delete some drafts to go forward',
-          });
-        }
-        dispatch(notify(errorMessage, 'error'));
-      }),
+      // promise: addDraftMetadata(post).catch(() => {
+      //   let errorMessage =
+      //     'Oops! You hit the storage limit of 16mb, delete some drafts to go forward';
+      //   if (intl) {
+      //     errorMessage = intl.formatMessage({
+      //       id: 'drafts_memory_usage_error',
+      //       defaultMessage:
+      //         'Oops! You hit the storage limit of 16mb, delete some drafts to go forward',
+      //     });
+      //   }
+      //   dispatch(notify(errorMessage, 'error'));
+      // }),
     },
     meta: { postId: post.id },
   });
@@ -59,7 +59,7 @@ export const deleteDraft = draftIds => dispatch =>
   dispatch({
     type: DELETE_DRAFT,
     payload: {
-      promise: deleteDraftMetadata(draftIds),
+      // promise: deleteDraftMetadata(draftIds),
     },
     meta: { ids: draftIds },
   });
