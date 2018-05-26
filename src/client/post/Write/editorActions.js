@@ -110,51 +110,65 @@ const broadcastComment = (
   ];
   operations.push(commentOp);
 
-  const commentOptionsConfig = {
-    author,
-    permlink,
-    allow_votes: true,
-    allow_curation_rewards: true,
-    max_accepted_payout: '1000000.000 SBD',
-    percent_steem_dollars: 10000,
-  };
+  // const commentOptionsConfig = {
+  //   author,
+  //   permlink,
+  //   allow_votes: true,
+  //   allow_curation_rewards: true,
+  //   max_accepted_payout: '1000000.000 SBD',
+  //   percent_steem_dollars: 10000,
+  // };
+  //
+  // if (reward === rewardsValues.none) {
+  //   commentOptionsConfig.max_accepted_payout = '0.000 SBD';
+  // } else if (reward === rewardsValues.all) {
+  //   commentOptionsConfig.percent_steem_dollars = 0;
+  // }
+  //
+  // if (referral && referral !== authUsername) {
+  //   commentOptionsConfig.extensions = [
+  //     [
+  //       0,
+  //       {
+  //         beneficiaries: [{ account: referral, weight: 1000 }],
+  //       },
+  //     ],
+  //   ];
+  // }
+  //
+  // if (reward === rewardsValues.none || reward === rewardsValues.all || referral) {
+  //   operations.push(['comment_options', commentOptionsConfig]);
+  // }
 
-  if (reward === rewardsValues.none) {
-    commentOptionsConfig.max_accepted_payout = '0.000 SBD';
-  } else if (reward === rewardsValues.all) {
-    commentOptionsConfig.percent_steem_dollars = 0;
-  }
-
-  if (referral && referral !== authUsername) {
-    commentOptionsConfig.extensions = [
-      [
-        0,
-        {
-          beneficiaries: [{ account: referral, weight: 1000 }],
-        },
-      ],
-    ];
-  }
-
-  if (reward === rewardsValues.none || reward === rewardsValues.all || referral) {
-    operations.push(['comment_options', commentOptionsConfig]);
-  }
-
-  if (upvote) {
-    operations.push([
-      'vote',
-      {
-        voter: author,
-        author,
-        permlink,
-        weight: 10000,
-      },
-    ]);
-  }
+  // if (upvote) {
+  //   operations.push([
+  //     'vote',
+  //     {
+  //       voter: author,
+  //       author,
+  //       permlink,
+  //       weight: 10000,
+  //     },
+  //   ]);
+  // }
 
   // return steemConnectAPI.broadcast(operations);
   // TODO: need to broadcast operations here
-  return {};
+
+  console.log("TODO: need to broadcast operations here");
+  console.log(steemAPI);
+
+  let loggedin_jsonstr = localStorage.getItem("loggedin");
+  let loggedin = JSON.parse(loggedin_jsonstr);
+  let postingWif = loggedin.postingKey;
+
+
+  let tx = steemAPI.chainLib.broadcast.sendAsync(
+    { operations, extensions: [] },
+    { posting: postingWif }
+  );
+
+  return tx;
 };
 
 export function createPost(postData) {
@@ -162,7 +176,7 @@ export function createPost(postData) {
     assert(postData[field] != null, `Developer Error: Missing required field ${field}`);
   });
 
-  return (dispatch, getState) => {
+  return (dispatch, getState, { steemAPI }) => {
     const {
       parentAuthor,
       parentPermlink,
@@ -182,7 +196,7 @@ export function createPost(postData) {
     const authUser = state.auth.user;
     const newBody = isUpdating ? getBodyPatchIfSmaller(postData.originalBody, body) : body;
 
-    dispatch(saveSettings({ upvoteSetting: upvote, rewardSetting: reward }));
+    // dispatch(saveSettings({ upvoteSetting: upvote, rewardSetting: reward }));
 
     let referral;
     if (Cookie.get('referral')) {
