@@ -4,9 +4,10 @@ const options = {
   timeout: 30000,
 };
 
-const steemUrl = process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws';
+console.log("process.env.STEEMJS_WS=" + process.env.STEEMJS_WS);
+console.log("process.env.STEEMJS_URL=" + process.env.STEEMJS_URL);
 
-const client = createClient(steemUrl, options);
+const client = createClient(process.env.STEEMJS_URL, options);
 client.sendAsync = (message, params) =>
   new Promise((resolve, reject) => {
     client.send(message, params, (err, result) => {

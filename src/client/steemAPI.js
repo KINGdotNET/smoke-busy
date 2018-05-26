@@ -4,9 +4,7 @@ const options = {
   timeout: 15000,
 };
 
-const steemUrl = process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws';
-
-const client = createClient(steemUrl, options);
+const client = createClient(process.env.STEEMJS_URL, options);
 client.sendAsync = (message, params) =>
   new Promise((resolve, reject) => {
     client.send(message, params, (err, result) => {
@@ -19,9 +17,9 @@ client.sendAsync = (message, params) =>
 ////////////////////////////////////////////////////////////////////////////////
 
 let chainLib = require('steem');
-chainLib.api.setOptions({url: steemUrl});
-chainLib.config.set('address_prefix', 'WLS');
-chainLib.config.set('chain_id', 'de999ada2ff7ed3d3d580381f229b40b5a0261aec48eb830e540080817b72866');
+chainLib.api.setOptions({url: process.env.STEEMJS_WS});
+chainLib.config.set('address_prefix', 'SMK');
+chainLib.config.set('chain_id', 'a66e00caa50e6817bbe24e927bf48c5d4ba1b33f36bdbb5fa262a04012c4e3ee');
 
 // export default client;
 export default {

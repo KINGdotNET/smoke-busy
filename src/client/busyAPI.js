@@ -1,6 +1,9 @@
 import { Client } from 'busyjs';
 
-const client = new Client('wss://beta.whaleshares.net/ws');
+console.log("process.env.STEEMJS_WS=" + process.env.STEEMJS_WS);
+console.log("process.env.STEEMJS_URL=" + process.env.STEEMJS_URL);
+
+const client = new Client(process.env.STEEMJS_WS);
 
 client.sendAsync = (message, params) =>
   new Promise((resolve, reject) => {

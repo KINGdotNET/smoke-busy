@@ -19,13 +19,8 @@ module.exports = {
         NODE_ENV: JSON.stringify('development'),
         ENABLE_LOGGER: JSON.stringify(process.env.ENABLE_LOGGER),
         STEEMCONNECT_CLIENT_ID: JSON.stringify(process.env.STEEMCONNECT_CLIENT_ID || 'busy.app'),
-        STEEMCONNECT_REDIRECT_URL: JSON.stringify(
-          process.env.STEEMCONNECT_REDIRECT_URL || 'http://localhost:3000/callback',
-        ),
-        STEEMCONNECT_HOST: JSON.stringify(
-          process.env.STEEMCONNECT_HOST || 'https://steemconnect.com',
-        ),
-        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://beta.whaleshares.net/ws'),
+        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL),
+        STEEMJS_WS: JSON.stringify(process.env.STEEMJS_WS),
         IS_BROWSER: JSON.stringify(true),
         SIGNUP_URL: JSON.stringify(process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy'),
       },
