@@ -30,14 +30,14 @@ export const REFRESH_CRYPTO_PRICE_HISTORY = '@app/REFRESH_CRYPTO_PRICE_HISTORY';
 export const refreshCryptoPriceHistory = createAction(REFRESH_CRYPTO_PRICE_HISTORY);
 
 export const getRate = () => (dispatch, getState, { steemAPI }) => {
-  dispatch({
-    type: RATE_REQUEST.ACTION,
-    payload: {
-      promise: steemAPI
-        .sendAsync('get_current_median_history_price', [])
-        .then(resp => parseFloat(resp.base)),
-    },
-  });
+  // dispatch({
+  //   type: RATE_REQUEST.ACTION,
+  //   payload: {
+  //     // promise: steemAPI
+  //     //   .sendAsync('get_current_median_history_price', [])
+  //     //   .then(resp => parseFloat(resp.base)),
+  //   },
+  // });
 };
 
 export const getRewardFund = () => (dispatch, getSelection, { steemAPI }) =>

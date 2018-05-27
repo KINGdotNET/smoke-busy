@@ -1,18 +1,24 @@
 localhost:8888 {
-	tls off
-  cors
-
   log stdout
+	tls off
+
+  # cors
+	cors / {
+		origin *
+		methods GET,POST,OPTIONS
+		allowed_headers DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range
+		exposed_headers DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range
+	}
 
   # busy
   proxy / localhost:3000 {
     websocket
   }
 
-	# server image upload
-	# 51.15.137.162:8090 51.15.135.172:8090
-	proxy /ws 51.15.137.162:8090 51.15.135.172:8090 {
-	  fail_timeout 1m
+	# blockchain
+	proxy /ws localhost:8090 {
+	  #fail_timeout 1m
+	  timeout 30s
 		without /ws
 		websocket
 	}

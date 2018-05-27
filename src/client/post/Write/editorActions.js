@@ -38,18 +38,18 @@ export const saveDraft = (post, redirect, intl) => dispatch => {
   return dispatch({
     type: SAVE_DRAFT,
     payload: {
-      promise: addDraftMetadata(post).catch(() => {
-        let errorMessage =
-          'Oops! You hit the storage limit of 16mb, delete some drafts to go forward';
-        if (intl) {
-          errorMessage = intl.formatMessage({
-            id: 'drafts_memory_usage_error',
-            defaultMessage:
-              'Oops! You hit the storage limit of 16mb, delete some drafts to go forward',
-          });
-        }
-        dispatch(notify(errorMessage, 'error'));
-      }),
+      // promise: addDraftMetadata(post).catch(() => {
+      //   let errorMessage =
+      //     'Oops! You hit the storage limit of 16mb, delete some drafts to go forward';
+      //   if (intl) {
+      //     errorMessage = intl.formatMessage({
+      //       id: 'drafts_memory_usage_error',
+      //       defaultMessage:
+      //         'Oops! You hit the storage limit of 16mb, delete some drafts to go forward',
+      //     });
+      //   }
+      //   dispatch(notify(errorMessage, 'error'));
+      // }),
     },
     meta: { postId: post.id },
   });
@@ -59,7 +59,7 @@ export const deleteDraft = draftIds => dispatch =>
   dispatch({
     type: DELETE_DRAFT,
     payload: {
-      promise: deleteDraftMetadata(draftIds),
+      // promise: deleteDraftMetadata(draftIds),
     },
     meta: { ids: draftIds },
   });
@@ -110,51 +110,59 @@ const broadcastComment = (
   ];
   operations.push(commentOp);
 
-  const commentOptionsConfig = {
-    author,
-    permlink,
-    allow_votes: true,
-    allow_curation_rewards: true,
-    max_accepted_payout: '1000000.000 SBD',
-    percent_steem_dollars: 10000,
-  };
+  // const commentOptionsConfig = {
+  //   author,
+  //   permlink,
+  //   allow_votes: true,
+  //   allow_curation_rewards: true,
+  //   max_accepted_payout: '1000000.000 SBD',
+  //   percent_steem_dollars: 10000,
+  // };
+  //
+  // if (reward === rewardsValues.none) {
+  //   commentOptionsConfig.max_accepted_payout = '0.000 SBD';
+  // } else if (reward === rewardsValues.all) {
+  //   commentOptionsConfig.percent_steem_dollars = 0;
+  // }
+  //
+  // if (referral && referral !== authUsername) {
+  //   commentOptionsConfig.extensions = [
+  //     [
+  //       0,
+  //       {
+  //         beneficiaries: [{ account: referral, weight: 1000 }],
+  //       },
+  //     ],
+  //   ];
+  // }
+  //
+  // if (reward === rewardsValues.none || reward === rewardsValues.all || referral) {
+  //   operations.push(['comment_options', commentOptionsConfig]);
+  // }
 
-  if (reward === rewardsValues.none) {
-    commentOptionsConfig.max_accepted_payout = '0.000 SBD';
-  } else if (reward === rewardsValues.all) {
-    commentOptionsConfig.percent_steem_dollars = 0;
-  }
+  // if (upvote) {
+  //   operations.push([
+  //     'vote',
+  //     {
+  //       voter: author,
+  //       author,
+  //       permlink,
+  //       weight: 10000,
+  //     },
+  //   ]);
+  // }
 
-  if (referral && referral !== authUsername) {
-    commentOptionsConfig.extensions = [
-      [
-        0,
-        {
-          beneficiaries: [{ account: referral, weight: 1000 }],
-        },
-      ],
-    ];
-  }
+  let loggedin_jsonstr = localStorage.getItem("loggedin");
+  let loggedin = JSON.parse(loggedin_jsonstr);
+  let postingWif = loggedin.postingKey;
 
-  if (reward === rewardsValues.none || reward === rewardsValues.all || referral) {
-    operations.push(['comment_options', commentOptionsConfig]);
-  }
 
-  if (upvote) {
-    operations.push([
-      'vote',
-      {
-        voter: author,
-        author,
-        permlink,
-        weight: 10000,
-      },
-    ]);
-  }
+  let tx = steemAPI.chainLib.broadcast.sendAsync(
+    { operations, extensions: [] },
+    { posting: postingWif }
+  );
 
-  // return steemConnectAPI.broadcast(operations);
-  // TODO: need to broadcast operations here
-  return {};
+  return tx;
 };
 
 export function createPost(postData) {
@@ -162,7 +170,7 @@ export function createPost(postData) {
     assert(postData[field] != null, `Developer Error: Missing required field ${field}`);
   });
 
-  return (dispatch, getState) => {
+  return (dispatch, getState, { steemAPI }) => {
     const {
       parentAuthor,
       parentPermlink,
@@ -182,7 +190,7 @@ export function createPost(postData) {
     const authUser = state.auth.user;
     const newBody = isUpdating ? getBodyPatchIfSmaller(postData.originalBody, body) : body;
 
-    dispatch(saveSettings({ upvoteSetting: upvote, rewardSetting: reward }));
+    // dispatch(saveSettings({ upvoteSetting: upvote, rewardSetting: reward }));
 
     let referral;
     if (Cookie.get('referral')) {
