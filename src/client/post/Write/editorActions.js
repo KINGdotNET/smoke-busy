@@ -152,12 +152,6 @@ const broadcastComment = (
   //   ]);
   // }
 
-  // return steemConnectAPI.broadcast(operations);
-  // TODO: need to broadcast operations here
-
-  console.log("TODO: need to broadcast operations here");
-  console.log(steemAPI);
-
   let loggedin_jsonstr = localStorage.getItem("loggedin");
   let loggedin = JSON.parse(loggedin_jsonstr);
   let postingWif = loggedin.postingKey;

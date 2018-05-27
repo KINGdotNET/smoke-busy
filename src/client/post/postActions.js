@@ -16,8 +16,8 @@ export const getContent = (author, permlink, afterLike) => (dispatch, getState, 
     type: GET_CONTENT.ACTION,
     payload: {
       promise: steemAPI.sendAsync('get_content', [author, permlink]).then(res => {
-        if (res.id === 0) throw new Error('There is no such post');
-        return res;
+        if (res.author) return res;
+        throw new Error('There is no such post');
       }),
     },
     meta: {
