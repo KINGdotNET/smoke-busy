@@ -350,8 +350,7 @@ class Topnav extends React.Component {
         <div className="topnav-layout">
           <div className={classNames('left', { 'Topnav__mobile-hidden': searchBarActive })}>
             <Link className="Topnav__brand" to="/">
-              <img src="./favicon.ico" className="Topnav__brand-icon" />
-              smoke.io
+              <img src="./favicon.ico" className="Topnav__brand-icon" /> smoke
             </Link>
             <span className="Topnav__version">beta</span>
           </div>
