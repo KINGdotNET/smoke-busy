@@ -59,7 +59,7 @@ export default class Transfer extends React.Component {
   static maxAccountLength = 16;
   static exchangeRegex = /^(bittrex|blocktrades|poloniex|changelly|openledge|shapeshiftio)$/;
   static CURRENCIES = {
-    STEEM: 'STEEM',
+    STEEM: 'SMOKE',
     SBD: 'SBD',
   };
 
@@ -293,7 +293,6 @@ export default class Transfer extends React.Component {
     })(
       <Radio.Group onChange={this.handleCurrencyChange} className="Transfer__amount__type">
         <Radio.Button value={Transfer.CURRENCIES.STEEM}>{Transfer.CURRENCIES.STEEM}</Radio.Button>
-        <Radio.Button value={Transfer.CURRENCIES.SBD}>{Transfer.CURRENCIES.SBD}</Radio.Button>
       </Radio.Group>,
     );
 

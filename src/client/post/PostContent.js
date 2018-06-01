@@ -179,12 +179,10 @@ class PostContent extends React.Component {
     if (isBannedPost(content)) return <DMCARemovedMessage className="center" />;
 
     const postMetaData = jsonParse(content.json_metadata);
-    const busyHost = appUrl || 'https://busy.org';
+    const busyHost = appUrl || 'https://smoke.io';
     let canonicalHost = busyHost;
 
-    if (_.indexOf(postMetaData.app, 'steemit') === 0) {
-      canonicalHost = 'https://steemit.com';
-    }
+    
 
     const userVote = _.find(content.active_votes, { voter: user.name }) || {};
 
@@ -216,7 +214,7 @@ class PostContent extends React.Component {
     const canonicalUrl = `${canonicalHost}${dropCategory(content.url)}`;
     const url = `${busyHost}${dropCategory(content.url)}`;
     const ampUrl = `${url}/amp`;
-    const metaTitle = `${title} - Busy`;
+    const metaTitle = `${title} - Smoke`;
 
     return (
       <div>
@@ -230,11 +228,11 @@ class PostContent extends React.Component {
           <meta property="og:url" content={url} />
           <meta property="og:image" content={image} />
           <meta property="og:description" content={desc} />
-          <meta property="og:site_name" content="Busy" />
+          <meta property="og:site_name" content="Smoke" />
           <meta property="article:tag" content={category} />
           <meta property="article:published_time" content={created} />
           <meta property="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-          <meta property="twitter:site" content={'@busyorg'} />
+          <meta property="twitter:site" content={'@smoke_io'} />
           <meta property="twitter:title" content={metaTitle} />
           <meta property="twitter:description" content={desc} />
           <meta property="twitter:image" content={image} />

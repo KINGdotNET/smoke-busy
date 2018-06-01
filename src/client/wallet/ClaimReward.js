@@ -26,13 +26,13 @@ const getFormattedPayout = (
 
   if (parsedRewardSteem > 0) {
     payouts.push(
-      <span key="STEEM" className="UserWalletTransactions__payout-rewards">
+      <span key="SMOKE" className="UserWalletTransactions__payout-rewards">
         <FormattedNumber
           value={parsedRewardSteem}
           minimumFractionDigits={3}
           maximumFractionDigits={3}
         />
-        {' STEEM'}
+        {' SMOKE'}
       </span>,
     );
   }
