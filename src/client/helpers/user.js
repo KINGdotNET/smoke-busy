@@ -1,29 +1,29 @@
 import { calculateVoteValue } from '../vendor/steemitHelpers';
 
 export const getUserRank = vests => {
-  let rank = 'Plankton';
+  let rank = 'Sober';
   if (vests >= 1000000000) {
-    rank = 'Whale';
+    rank = 'In Space';
   } else if (vests >= 100000000) {
-    rank = 'Orca';
+    rank = 'Blazed';
   } else if (vests >= 10000000) {
-    rank = 'Dolphin';
+    rank = 'High';
   } else if (vests >= 1000000) {
-    rank = 'Minnow';
+    rank = 'Buzzed';
   }
   return rank;
 };
 
 export const getUserRankKey = vests => {
-  let rank = 'plankton';
+  let rank = 'Sober';
   if (vests >= 1000000000) {
-    rank = 'whale';
+    rank = 'In Space';
   } else if (vests >= 100000000) {
-    rank = 'orca';
+    rank = 'Blazed';
   } else if (vests >= 10000000) {
-    rank = 'dolphin';
+    rank = 'High';
   } else if (vests >= 1000000) {
-    rank = 'minnow';
+    rank = 'Buzzed';
   }
   return `rank_${rank}`;
 };
