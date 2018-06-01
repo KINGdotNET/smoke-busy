@@ -78,9 +78,7 @@ export const editPost = post => dispatch => {
   );
 };
 
-const requiredFields = 'parentAuthor,parentPermlink,author,permlink,title,body,jsonMetadata'.split(
-  ',',
-);
+const requiredFields = 'parentAuthor,parentPermlink,author,permlink,title,body,jsonMetadata'.split(',');
 
 const broadcastComment = (
   parentAuthor,
@@ -94,6 +92,7 @@ const broadcastComment = (
   permlink,
   referral,
   authUsername,
+  { steemAPI }
 ) => {
   const operations = [];
   const commentOp = [
@@ -156,7 +155,6 @@ const broadcastComment = (
   let loggedin = JSON.parse(loggedin_jsonstr);
   let postingWif = loggedin.postingKey;
 
-
   let tx = steemAPI.chainLib.broadcast.sendAsync(
     { operations, extensions: [] },
     { posting: postingWif }
@@ -217,6 +215,7 @@ export function createPost(postData) {
             permlink,
             referral,
             authUser.name,
+            { steemAPI }
           ).then(result => {
             if (draftId) {
               dispatch(deleteDraft(draftId));

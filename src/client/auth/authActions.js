@@ -140,29 +140,29 @@ export const logout = () => (dispatch, getState) => {
   });
 };
 
-export const getUpdatedSCUserMetadata = () => (dispatch, getState) =>
-  dispatch({
-    type: UPDATE_SC2_USER_METADATA.ACTION,
-    payload: {
-      // promise: steemConnectAPI.me(),
-    },
-  });
+// export const getUpdatedSCUserMetadata = () => (dispatch, getState) =>
+//   dispatch({
+//     type: UPDATE_SC2_USER_METADATA.ACTION,
+//     payload: {
+//       // promise: steemConnectAPI.me(),
+//     },
+//   });
 
-export const busyLogin = () => (dispatch, getState) => {
-  const accessToken = Cookie.get('access_token');
-  const state = getState();
-
-  if (!getIsAuthenticated(state)) {
-    return dispatch({ type: BUSY_LOGIN.ERROR });
-  }
-
-  const targetUsername = getAuthenticatedUserName(state);
-
-  return dispatch({
-    type: BUSY_LOGIN.ACTION,
-    meta: targetUsername,
-    payload: {
-      promise: busyAPI.sendAsync('login', [accessToken]),
-    },
-  });
-};
+// export const busyLogin = () => (dispatch, getState) => {
+//   const accessToken = Cookie.get('access_token');
+//   const state = getState();
+//
+//   if (!getIsAuthenticated(state)) {
+//     return dispatch({ type: BUSY_LOGIN.ERROR });
+//   }
+//
+//   const targetUsername = getAuthenticatedUserName(state);
+//
+//   return dispatch({
+//     type: BUSY_LOGIN.ACTION,
+//     meta: targetUsername,
+//     payload: {
+//       promise: busyAPI.sendAsync('login', [accessToken]),
+//     },
+//   });
+// };

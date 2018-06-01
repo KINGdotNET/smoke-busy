@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Menu, Popover, Input, AutoComplete } from 'antd';
 import classNames from 'classnames';
 import { searchAutoComplete } from '../../search/searchActions';
-import { getUpdatedSCUserMetadata } from '../../auth/authActions';
+// import { getUpdatedSCUserMetadata } from '../../auth/authActions';
 import {
   getAutoCompleteSearchResults,
   getNotifications,
@@ -33,7 +33,7 @@ import './Topnav.less';
   }),
   {
     searchAutoComplete,
-    getUpdatedSCUserMetadata,
+    // getUpdatedSCUserMetadata,
   },
 )
 class Topnav extends React.Component {
@@ -45,7 +45,7 @@ class Topnav extends React.Component {
     username: PropTypes.string,
     notifications: PropTypes.arrayOf(PropTypes.shape()),
     searchAutoComplete: PropTypes.func.isRequired,
-    getUpdatedSCUserMetadata: PropTypes.func.isRequired,
+    // getUpdatedSCUserMetadata: PropTypes.func.isRequired,
     onMenuItemClick: PropTypes.func,
     userSCMetaData: PropTypes.shape(),
     loadingNotifications: PropTypes.bool,
@@ -196,7 +196,7 @@ class Topnav extends React.Component {
                     currentAuthUsername={username}
                     lastSeenTimestamp={lastSeenTimestamp}
                     loadingNotifications={loadingNotifications}
-                    getUpdatedSCUserMetadata={this.props.getUpdatedSCUserMetadata}
+                    // getUpdatedSCUserMetadata={this.props.getUpdatedSCUserMetadata}
                   />
                 }
                 visible={notificationsPopoverVisible}

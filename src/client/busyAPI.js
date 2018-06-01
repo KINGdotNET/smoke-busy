@@ -1,6 +1,6 @@
 import { Client } from 'busyjs';
 
-const client = new Client(process.env.STEEMJS_WS);
+const client = new Client("wss://staging.smoke.io/ws");
 
 client.sendAsync = (message, params) =>
   new Promise((resolve, reject) => {

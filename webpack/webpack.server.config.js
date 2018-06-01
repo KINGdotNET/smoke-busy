@@ -45,7 +45,7 @@ module.exports = {
       'process.env.STEEMCONNECT_CLIENT_ID': JSON.stringify(process.env.STEEMCONNECT_CLIENT_ID || 'busy.app'),
       'process.env.STEEMCONNECT_HOST': JSON.stringify(process.env.STEEMCONNECT_HOST),
       'process.env.STEEMJS_URL': JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
-      'process.env.STEEMJS_WS': JSON.stringify(process.env.STEEMJS_WS || 'wss://staging.smoke.io/ws'),
+      'process.env.STEEMJS_WS': JSON.stringify(process.env.STEEMJS_WS || 'https://staging.smoke.io/ws'),
       'process.env.IS_BROWSER': JSON.stringify(false),
       'process.env.SIGNUP_URL': JSON.stringify(process.env.SIGNUP_URL),
     }),
