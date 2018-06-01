@@ -19,8 +19,8 @@ module.exports = {
         NODE_ENV: JSON.stringify('development'),
         ENABLE_LOGGER: JSON.stringify(process.env.ENABLE_LOGGER),
         STEEMCONNECT_CLIENT_ID: JSON.stringify(process.env.STEEMCONNECT_CLIENT_ID || 'busy.app'),
-        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL),
-        STEEMJS_WS: JSON.stringify(process.env.STEEMJS_WS),
+        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
+        STEEMJS_WS: JSON.stringify(process.env.STEEMJS_WS || 'wss://staging.smoke.io/ws'),
         IS_BROWSER: JSON.stringify(true),
         SIGNUP_URL: JSON.stringify(process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy'),
       },
@@ -73,9 +73,9 @@ module.exports = {
     // headers: {
     //   'Access-Control-Allow-Origin': '*',
     // },
-    proxy: {
-      '/callback': 'http://localhost:3001',
-      '/i/**': 'http://localhost:3001',
-    },
+    // proxy: {
+    //   '/callback': 'http://localhost:3001',
+    //   '/i/**': 'http://localhost:3001',
+    // },
   },
 };

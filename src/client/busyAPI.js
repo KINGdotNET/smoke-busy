@@ -1,8 +1,5 @@
 import { Client } from 'busyjs';
 
-console.log("process.env.STEEMJS_WS=" + process.env.STEEMJS_WS);
-console.log("process.env.STEEMJS_URL=" + process.env.STEEMJS_URL);
-
 const client = new Client(process.env.STEEMJS_WS);
 
 client.sendAsync = (message, params) =>

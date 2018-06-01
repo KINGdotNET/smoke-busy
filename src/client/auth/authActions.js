@@ -24,7 +24,7 @@ export const BUSY_LOGIN = createAsyncActionType('@auth/BUSY_LOGIN');
 
 const loginError = createAction(LOGIN_ERROR);
 
-export const login = () => (dispatch, getState) => {
+export const login = () => (dispatch, getState, { steemAPI } ) => {
   let promise = Promise.resolve(null);
 
   if (getIsAuthenticated(getState())) {
@@ -57,7 +57,7 @@ export const login = () => (dispatch, getState) => {
   }).catch(() => dispatch(loginError()));
 };
 
-export const loginWithPostingKey = (username, postingKey) => async (dispatch, getState) => {
+export const loginWithPostingKey = (username, postingKey) => async (dispatch, getState, { steemAPI }) => {
   let account = null; //
 
   // validating if key is correct
