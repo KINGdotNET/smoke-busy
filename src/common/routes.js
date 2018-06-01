@@ -24,11 +24,17 @@ import Discover from '../client/discover/Discover';
 import Search from '../client/search/Search';
 import Notifications from '../client/notifications/Notifications';
 import Error404 from '../client/statics/Error404';
+import Login from '../client/auth/Login'
 
 const routes = [
   {
     component: Wrapper,
     routes: [
+      {
+        path: '/login',
+        exact: true,
+        component: Login,
+      },
       {
         path: '/bookmarks',
         exact: true,

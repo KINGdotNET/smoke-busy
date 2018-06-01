@@ -95,16 +95,6 @@ class UserInfo extends React.Component {
                   maximumFractionDigits={0}
                 />
               </div>
-              <div>
-                <i className="iconfont icon-dollar text-icon" />
-                <FormattedMessage id="vote_value" defaultMessage="Vote Value" />
-                :{' '}
-                {isNaN(voteWorth) ? (
-                  <Icon type="loading" className="text-icon-right" />
-                ) : (
-                  <USDDisplay value={voteWorth} />
-                )}
-              </div>
               <SocialLinks profile={profile} />
             </div>
           </div>

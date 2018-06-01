@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import LeftSidebar from '../app/Sidebar/LeftSidebar';
 import Affix from '../components/Utils/Affix';
 import * as notificationConstants from '../../common/constants/notifications';
-import { getUpdatedSCUserMetadata } from '../auth/authActions';
+// import { getUpdatedSCUserMetadata } from '../auth/authActions';
 import { getNotifications } from '../user/userActions';
 import {
   getAuthenticatedUserSCMetaData,
@@ -28,7 +28,7 @@ import './Notifications.less';
 class Notifications extends React.Component {
   static propTypes = {
     loadingNotifications: PropTypes.bool.isRequired,
-    getUpdatedSCUserMetadata: PropTypes.func.isRequired,
+    // getUpdatedSCUserMetadata: PropTypes.func.isRequired,
     getNotifications: PropTypes.func.isRequired,
     notifications: PropTypes.arrayOf(PropTypes.shape()),
     currentAuthUsername: PropTypes.string,
@@ -44,9 +44,9 @@ class Notifications extends React.Component {
   componentDidMount() {
     const { userSCMetaData, notifications } = this.props;
 
-    if (_.isEmpty(userSCMetaData)) {
-      this.props.getUpdatedSCUserMetadata();
-    }
+    // if (_.isEmpty(userSCMetaData)) {
+    //   this.props.getUpdatedSCUserMetadata();
+    // }
 
     if (_.isEmpty(notifications)) {
       this.props.getNotifications();
@@ -148,12 +148,12 @@ class Notifications extends React.Component {
 export default connect(
   state => ({
     notifications: getNotificationsState(state),
-    userSCMetaData: getAuthenticatedUserSCMetaData(state),
+    // userSCMetaData: getAuthenticatedUserSCMetaData(state),
     currentAuthUsername: getAuthenticatedUserName(state),
     loadingNotifications: getIsLoadingNotifications(state),
   }),
   {
-    getUpdatedSCUserMetadata,
+    // getUpdatedSCUserMetadata,
     getNotifications,
   },
 )(requiresLogin(Notifications));

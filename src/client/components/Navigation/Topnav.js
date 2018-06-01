@@ -7,14 +7,13 @@ import { connect } from 'react-redux';
 import { Menu, Popover, Input, AutoComplete } from 'antd';
 import classNames from 'classnames';
 import { searchAutoComplete } from '../../search/searchActions';
-import { getUpdatedSCUserMetadata } from '../../auth/authActions';
+// import { getUpdatedSCUserMetadata } from '../../auth/authActions';
 import {
   getAutoCompleteSearchResults,
   getNotifications,
   getAuthenticatedUserSCMetaData,
   getIsLoadingNotifications,
 } from '../../reducers';
-import SteemConnect from '../../steemConnectAPI';
 import { PARSED_NOTIFICATIONS } from '../../../common/constants/notifications';
 import BTooltip from '../BTooltip';
 import Avatar from '../Avatar';
@@ -34,7 +33,7 @@ import './Topnav.less';
   }),
   {
     searchAutoComplete,
-    getUpdatedSCUserMetadata,
+    // getUpdatedSCUserMetadata,
   },
 )
 class Topnav extends React.Component {
@@ -46,7 +45,7 @@ class Topnav extends React.Component {
     username: PropTypes.string,
     notifications: PropTypes.arrayOf(PropTypes.shape()),
     searchAutoComplete: PropTypes.func.isRequired,
-    getUpdatedSCUserMetadata: PropTypes.func.isRequired,
+    // getUpdatedSCUserMetadata: PropTypes.func.isRequired,
     onMenuItemClick: PropTypes.func,
     userSCMetaData: PropTypes.shape(),
     loadingNotifications: PropTypes.bool,
@@ -134,9 +133,9 @@ class Topnav extends React.Component {
             |
           </Menu.Item>
           <Menu.Item key="login">
-            <a href={SteemConnect.getLoginURL(next)}>
+            <Link to="/login">
               <FormattedMessage id="login" defaultMessage="Log in" />
-            </a>
+            </Link>
           </Menu.Item>
           <Menu.Item key="language">
             <LanguageSettings />
@@ -197,7 +196,7 @@ class Topnav extends React.Component {
                     currentAuthUsername={username}
                     lastSeenTimestamp={lastSeenTimestamp}
                     loadingNotifications={loadingNotifications}
-                    getUpdatedSCUserMetadata={this.props.getUpdatedSCUserMetadata}
+                    // getUpdatedSCUserMetadata={this.props.getUpdatedSCUserMetadata}
                   />
                 }
                 visible={notificationsPopoverVisible}
@@ -351,8 +350,7 @@ class Topnav extends React.Component {
         <div className="topnav-layout">
           <div className={classNames('left', { 'Topnav__mobile-hidden': searchBarActive })}>
             <Link className="Topnav__brand" to="/">
-              <i className="iconfont icon-busy Topnav__brand-icon" />
-              busy
+              <img src="./favicon.ico" className="Topnav__brand-icon" /> smoke
             </Link>
             <span className="Topnav__version">beta</span>
           </div>

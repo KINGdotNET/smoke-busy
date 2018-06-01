@@ -1,5 +1,6 @@
 public/**
 .idea
+busy.iml
 .save
 *.css.map
 *.css
@@ -40,3 +41,5 @@ node_modules
 .tern-port
 .envrc
 busy.server.js
+.env
+setenv.sh

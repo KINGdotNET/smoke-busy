@@ -16,27 +16,27 @@ const storePostId = postId => {
   return newReblogged;
 };
 
-export const reblog = postId => (dispatch, getState, { steemConnectAPI }) => {
+export const reblog = postId => (dispatch, getState) => {
   const { auth, posts } = getState();
   const post = posts.list[postId];
 
   dispatch({
     type: REBLOG_POST,
     payload: {
-      promise: steemConnectAPI.reblog(auth.user.name, post.author, post.permlink).then(result => {
-        const list = storePostId(postId);
-        dispatch(getRebloggedListAction(list));
-
-        if (window.analytics) {
-          window.analytics.track('Reblog', {
-            category: 'reblog',
-            label: 'submit',
-            value: 2,
-          });
-        }
-
-        return result;
-      }),
+      // promise: steemConnectAPI.reblog(auth.user.name, post.author, post.permlink).then(result => {
+      //   const list = storePostId(postId);
+      //   dispatch(getRebloggedListAction(list));
+      //
+      //   if (window.analytics) {
+      //     window.analytics.track('Reblog', {
+      //       category: 'reblog',
+      //       label: 'submit',
+      //       value: 2,
+      //     });
+      //   }
+      //
+      //   return result;
+      // }),
     },
     meta: { postId },
   });

@@ -6,7 +6,6 @@ import _ from 'lodash';
 import { Form, Input, Radio, Modal } from 'antd';
 import { STEEM, SBD } from '../../common/constants/cryptos';
 import steemAPI from '../steemAPI';
-import SteemConnect from '../steemConnectAPI';
 import { getCryptoPriceHistory } from '../app/appActions';
 import { closeTransfer } from './walletActions';
 import {
@@ -60,7 +59,7 @@ export default class Transfer extends React.Component {
   static maxAccountLength = 16;
   static exchangeRegex = /^(bittrex|blocktrades|poloniex|changelly|openledge|shapeshiftio)$/;
   static CURRENCIES = {
-    STEEM: 'STEEM',
+    STEEM: 'SMOKE',
     SBD: 'SBD',
   };
 
@@ -150,7 +149,7 @@ export default class Transfer extends React.Component {
         };
         if (values.memo) transferQuery.memo = values.memo;
 
-        const win = window.open(SteemConnect.sign('transfer', transferQuery), '_blank');
+        const win = window.open("###transfer", '_blank');
         win.focus();
         this.props.closeTransfer();
       }
@@ -294,7 +293,6 @@ export default class Transfer extends React.Component {
     })(
       <Radio.Group onChange={this.handleCurrencyChange} className="Transfer__amount__type">
         <Radio.Button value={Transfer.CURRENCIES.STEEM}>{Transfer.CURRENCIES.STEEM}</Radio.Button>
-        <Radio.Button value={Transfer.CURRENCIES.SBD}>{Transfer.CURRENCIES.SBD}</Radio.Button>
       </Radio.Group>,
     );
 

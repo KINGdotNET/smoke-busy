@@ -6,7 +6,6 @@ import Logger from 'js-logger';
 import { AppContainer } from 'react-hot-loader';
 import { message } from 'antd';
 import Cookie from 'js-cookie';
-import steemConnectAPI from './steemConnectAPI';
 import { history } from './routes';
 import getStore from './store';
 import { loadTranslations } from './translations';
@@ -18,12 +17,12 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js');
 }
 
-const accessToken = Cookie.get('access_token');
-if (accessToken) {
-  steemConnectAPI.setAccessToken(accessToken);
-}
+// const accessToken = Cookie.get('access_token');
+// if (accessToken) {
+//   // steemConnectAPI.setAccessToken(accessToken);
+// }
 
-const store = getStore(steemConnectAPI);
+const store = getStore();
 
 message.config({
   top: 62,

@@ -5,7 +5,6 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { Form, Input } from 'antd';
-import SteemConnect from '../steemConnectAPI';
 import { getIsReloading, getAuthenticatedUser } from '../reducers';
 import socialProfiles from '../helpers/socialProfiles';
 import withEditor from '../components/Editor/withEditor';
@@ -92,7 +91,7 @@ export default class ProfileSettings extends React.Component {
             }),
             {},
           );
-        const win = window.open(SteemConnect.sign('profile-update', cleanValues), '_blank');
+        const win = window.open("###profile-update", '_blank');
         win.focus();
       }
     });
@@ -143,7 +142,7 @@ export default class ProfileSettings extends React.Component {
       <div className="shifted">
         <Helmet>
           <title>
-            {intl.formatMessage({ id: 'edit_profile', defaultMessage: 'Edit profile' })} - Busy
+            {intl.formatMessage({ id: 'edit_profile', defaultMessage: 'Edit profile' })} - Smoke
           </title>
         </Helmet>
         <div className="settings-layout container">

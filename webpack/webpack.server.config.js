@@ -42,22 +42,11 @@ module.exports = {
       maxChunks: 1,
     }),
     new webpack.DefinePlugin({
-      'process.env.STEEMCONNECT_CLIENT_ID': JSON.stringify(
-        process.env.STEEMCONNECT_CLIENT_ID || 'busy.app',
-      ),
-      'process.env.STEEMCONNECT_REDIRECT_URL': JSON.stringify(
-        process.env.STEEMCONNECT_REDIRECT_URL || 'http://localhost:3000/callback',
-      ),
-      'process.env.STEEMCONNECT_HOST': JSON.stringify(
-        process.env.STEEMCONNECT_HOST || 'https://steemconnect.com',
-      ),
-      'process.env.STEEMJS_URL': JSON.stringify(
-        process.env.STEEMJS_URL || 'https://api.steemit.com',
-      ),
+      'process.env.STEEMCONNECT_CLIENT_ID': JSON.stringify(process.env.STEEMCONNECT_CLIENT_ID || 'busy.app'),
+      'process.env.STEEMCONNECT_HOST': JSON.stringify(process.env.STEEMCONNECT_HOST),
+      'process.env.STEEMJS_URL': JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
       'process.env.IS_BROWSER': JSON.stringify(false),
-      'process.env.SIGNUP_URL': JSON.stringify(
-        process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy',
-      ),
+      'process.env.SIGNUP_URL': JSON.stringify(process.env.SIGNUP_URL),
     }),
   ],
 };

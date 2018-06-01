@@ -47,17 +47,9 @@ function makePlugins(options) {
         NODE_ENV: isDevelopment ? JSON.stringify('development') : JSON.stringify('production'),
         ENABLE_LOGGER: JSON.stringify(process.env.ENABLE_LOGGER),
         STEEMCONNECT_CLIENT_ID: JSON.stringify(process.env.STEEMCONNECT_CLIENT_ID || 'busy.app'),
-        STEEMCONNECT_REDIRECT_URL: JSON.stringify(
-          process.env.STEEMCONNECT_REDIRECT_URL || 'http://localhost:3000/callback',
-        ),
-        STEEMCONNECT_HOST: JSON.stringify(
-          process.env.STEEMCONNECT_HOST || 'https://steemconnect.com',
-        ),
-        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://api.steemit.com'),
+        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
         IS_BROWSER: JSON.stringify(true),
-        SIGNUP_URL: JSON.stringify(
-          process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy',
-        ),
+        SIGNUP_URL: JSON.stringify(process.env.SIGNUP_URL),
       },
     }),
     new LodashModuleReplacementPlugin({

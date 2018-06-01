@@ -4,9 +4,7 @@ const options = {
   timeout: 15000,
 };
 
-const steemUrl = process.env.STEEMJS_URL || 'https://api.steemit.com';
-
-const client = createClient(steemUrl, options);
+const client = createClient(process.env.STEEMJS_URL, options);
 client.sendAsync = (message, params) =>
   new Promise((resolve, reject) => {
     client.send(message, params, (err, result) => {
@@ -15,4 +13,16 @@ client.sendAsync = (message, params) =>
     });
   });
 
-export default client;
+
+////////////////////////////////////////////////////////////////////////////////
+
+let chainLib = require('steem');
+chainLib.api.setOptions({url: process.env.STEEMJS_URL});
+chainLib.config.set('address_prefix', 'SMK');
+chainLib.config.set('chain_id', 'a66e00caa50e6817bbe24e927bf48c5d4ba1b33f36bdbb5fa262a04012c4e3ee');
+
+// export default client;
+export default {
+  sendAsync: client.sendAsync,
+  chainLib: chainLib
+};
