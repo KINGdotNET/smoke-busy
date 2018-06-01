@@ -17,7 +17,7 @@ client.sendAsync = (message, params) =>
 ////////////////////////////////////////////////////////////////////////////////
 
 let chainLib = require('steem');
-chainLib.api.setOptions({url: process.env.STEEMJS_WS});
+chainLib.api.setOptions({url: process.env.STEEMJS_URL});
 chainLib.config.set('address_prefix', 'SMK');
 chainLib.config.set('chain_id', 'a66e00caa50e6817bbe24e927bf48c5d4ba1b33f36bdbb5fa262a04012c4e3ee');
 

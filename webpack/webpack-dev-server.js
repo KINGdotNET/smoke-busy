@@ -20,7 +20,6 @@ module.exports = {
         ENABLE_LOGGER: JSON.stringify(process.env.ENABLE_LOGGER),
         STEEMCONNECT_CLIENT_ID: JSON.stringify(process.env.STEEMCONNECT_CLIENT_ID || 'busy.app'),
         STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
-        STEEMJS_WS: JSON.stringify(process.env.STEEMJS_WS || 'https://staging.smoke.io/ws'),
         IS_BROWSER: JSON.stringify(true),
         SIGNUP_URL: JSON.stringify(process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy'),
       },
