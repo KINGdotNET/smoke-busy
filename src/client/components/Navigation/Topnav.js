@@ -10,7 +10,7 @@ import { searchAutoComplete } from '../../search/searchActions';
 // import { getUpdatedSCUserMetadata } from '../../auth/authActions';
 import {
   getAutoCompleteSearchResults,
-  getNotifications,
+  // getNotifications,
   getAuthenticatedUserSCMetaData,
   getIsLoadingNotifications,
 } from '../../reducers';
@@ -27,7 +27,7 @@ import './Topnav.less';
 @connect(
   state => ({
     autoCompleteSearchResults: getAutoCompleteSearchResults(state),
-    notifications: getNotifications(state),
+    // notifications: getNotifications(state),
     userSCMetaData: getAuthenticatedUserSCMetaData(state),
     loadingNotifications: getIsLoadingNotifications(state),
   }),

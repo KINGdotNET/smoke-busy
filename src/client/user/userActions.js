@@ -78,20 +78,20 @@ export const updateRecommendations = createAction(UPDATE_RECOMMENDATIONS);
 
 export const GET_NOTIFICATIONS = createAsyncActionType('@user/GET_NOTIFICATIONS');
 
-export const getNotifications = username => (dispatch, getState) => {
-  const state = getState();
-
-  if (!username && !getIsAuthenticated(state)) {
-    return dispatch({ type: GET_NOTIFICATIONS.ERROR });
-  }
-
-  const targetUsername = username || getAuthenticatedUserName(state);
-
-  return dispatch({
-    type: GET_NOTIFICATIONS.ACTION,
-    meta: targetUsername,
-    payload: {
-      promise: busyAPI.sendAsync('get_notifications', [targetUsername]),
-    },
-  });
-};
+// export const getNotifications = username => (dispatch, getState) => {
+//   const state = getState();
+//
+//   if (!username && !getIsAuthenticated(state)) {
+//     return dispatch({ type: GET_NOTIFICATIONS.ERROR });
+//   }
+//
+//   // const targetUsername = username || getAuthenticatedUserName(state);
+//
+//   // return dispatch({
+//   //   type: GET_NOTIFICATIONS.ACTION,
+//   //   meta: targetUsername,
+//   //   payload: {
+//   //     promise: busyAPI.sendAsync('get_notifications', [targetUsername]),
+//   //   },
+//   // });
+// };
