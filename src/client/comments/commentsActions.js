@@ -101,7 +101,7 @@ export const sendComment = (parentPost, body, isUpdating = false, originalCommen
     payload: {
       promise: steemAPI.chainLib.broadcast.commentAsync(postingWif, parentAuthor, parentPermlink, author, permlink, '', newBody, jsonMetadata)
         .then(resp => {
-          console.log("[commentsActions] resp=" + JSON.stringify(resp));
+          // console.log("[commentsActions] resp=" + JSON.stringify(resp));
           const focusedComment = {
             author: resp.result.operations[0][1].author,
             permlink: resp.result.operations[0][1].permlink,

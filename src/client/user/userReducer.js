@@ -149,7 +149,7 @@ export const getPendingFollows = state => state.following.pendingFollows;
 export const getIsFetchingFollowingList = state => state.following.isFetching;
 export const getRecommendations = state => state.recommendations;
 export const getFollowingFetched = state => state.following.fetched;
-export const getNotifications = state => state.notifications;
+// export const getNotifications = state => state.notifications;
 export const getIsLoadingNotifications = state => state.loadingNotifications;
 export const getFetchFollowListError = state => state.fetchFollowListError;
 export const getLatestNotification = state => state.latestNotification;

@@ -17,7 +17,7 @@ import {
   getUseBeta,
 } from './reducers';
 import { login, logout /* , busyLogin */ } from './auth/authActions';
-import { getFollowing, getNotifications } from './user/userActions';
+import { getFollowing /* , getNotifications */ } from './user/userActions';
 import {
   getRate,
   getRewardFund,
@@ -46,7 +46,7 @@ import Transfer from './wallet/Transfer';
     login,
     logout,
     getFollowing,
-    getNotifications,
+    // getNotifications,
     getRate,
     getRewardFund,
     getTrendingTopics,
@@ -72,7 +72,7 @@ export default class Wrapper extends React.PureComponent {
     getRebloggedList: PropTypes.func,
     getRate: PropTypes.func,
     getTrendingTopics: PropTypes.func,
-    getNotifications: PropTypes.func,
+    // getNotifications: PropTypes.func,
     setUsedLocale: PropTypes.func,
     // busyLogin: PropTypes.func,
     busyAPIHandler: PropTypes.func,
@@ -87,7 +87,7 @@ export default class Wrapper extends React.PureComponent {
     getRebloggedList: () => {},
     getRate: () => {},
     getTrendingTopics: () => {},
-    getNotifications: () => {},
+    // getNotifications: () => {},
     setUsedLocale: () => {},
     // busyLogin: () => {},
     busyAPIHandler: () => {},
@@ -144,7 +144,7 @@ export default class Wrapper extends React.PureComponent {
 
     this.props.login().then(() => {
       this.props.getFollowing();
-      this.props.getNotifications();
+      // this.props.getNotifications();
       // this.props.busyLogin();
     });
 

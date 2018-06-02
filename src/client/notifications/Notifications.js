@@ -7,10 +7,10 @@ import LeftSidebar from '../app/Sidebar/LeftSidebar';
 import Affix from '../components/Utils/Affix';
 import * as notificationConstants from '../../common/constants/notifications';
 // import { getUpdatedSCUserMetadata } from '../auth/authActions';
-import { getNotifications } from '../user/userActions';
+// import { getNotifications } from '../user/userActions';
 import {
-  getAuthenticatedUserSCMetaData,
-  getNotifications as getNotificationsState,
+  // getAuthenticatedUserSCMetaData,
+  // getNotifications as getNotificationsState,
   getIsLoadingNotifications,
   getAuthenticatedUserName,
 } from '../reducers';
@@ -29,7 +29,7 @@ class Notifications extends React.Component {
   static propTypes = {
     loadingNotifications: PropTypes.bool.isRequired,
     // getUpdatedSCUserMetadata: PropTypes.func.isRequired,
-    getNotifications: PropTypes.func.isRequired,
+    // getNotifications: PropTypes.func.isRequired,
     notifications: PropTypes.arrayOf(PropTypes.shape()),
     currentAuthUsername: PropTypes.string,
     userSCMetaData: PropTypes.shape(),
@@ -48,9 +48,9 @@ class Notifications extends React.Component {
     //   this.props.getUpdatedSCUserMetadata();
     // }
 
-    if (_.isEmpty(notifications)) {
-      this.props.getNotifications();
-    }
+    // if (_.isEmpty(notifications)) {
+    //   this.props.getNotifications();
+    // }
   }
 
   render() {
@@ -154,6 +154,6 @@ export default connect(
   }),
   {
     // getUpdatedSCUserMetadata,
-    getNotifications,
+    // getNotifications,
   },
 )(requiresLogin(Notifications));
