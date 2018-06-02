@@ -28,7 +28,7 @@ export const getContent = (author, permlink, afterLike) => (dispatch, getState, 
   }).catch(() => {});
 };
 
-export const votePost = (postId, author, permlink, weight = 10000) => ( dispatch, getState ) => {
+export const votePost = (postId, author, permlink, weight = 10000) => ( dispatch, getState, { steemAPI } ) => {
   const { auth, posts } = getState();
   if (!auth.isAuthenticated) {
     return null;
@@ -44,19 +44,6 @@ export const votePost = (postId, author, permlink, weight = 10000) => ( dispatch
   return dispatch({
     type: LIKE_POST,
     payload: {
-      // promise: steemConnectAPI.vote(voter, post.author, post.permlink, weight).then(res => {
-      //   if (window.analytics) {
-      //     window.analytics.track('Vote', {
-      //       category: 'vote',
-      //       label: 'submit',
-      //       value: 1,
-      //     });
-      //   }
-      //
-      //   // Delay to make sure you get the latest data (unknown issue with API)
-      //   setTimeout(() => dispatch(getContent(post.author, post.permlink, true)), 1000);
-      //   return res;
-      // }),
       promise: steemAPI.chainLib.broadcast.voteAsync(postingWif, voter, post.author, post.permlink, weight)
         .then(res => {
             // if (window.analytics) {
