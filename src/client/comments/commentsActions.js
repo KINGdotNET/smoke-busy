@@ -72,7 +72,7 @@ export const getComments = (postId, reload = false, focusedComment = undefined) 
   });
 };
 
-export const sendComment = (parentPost, body, isUpdating = false, originalComment) => ( dispatch, getState ) => {
+export const sendComment = (parentPost, body, isUpdating = false, originalComment) => ( dispatch, getState, { steemAPI } ) => {
   const { category, id, permlink: parentPermlink, author: parentAuthor } = parentPost;
   const { auth } = getState();
 
@@ -99,23 +99,6 @@ export const sendComment = (parentPost, body, isUpdating = false, originalCommen
   return dispatch({
     type: SEND_COMMENT,
     payload: {
-      // promise: steemConnectAPI
-      //   .comment(parentAuthor, parentPermlink, author, permlink, '', newBody, jsonMetadata)
-      //   .then(resp => {
-      //     const focusedComment = {
-      //       author: resp.result.operations[0][1].author,
-      //       permlink: resp.result.operations[0][1].permlink,
-      //     };
-      //     dispatch(getComments(id, true, focusedComment));
-      //
-      //     if (window.analytics) {
-      //       window.analytics.track('Comment', {
-      //         category: 'comment',
-      //         label: 'submit',
-      //         value: 3,
-      //       });
-      //     }
-      //   }),
       promise: steemAPI.chainLib.broadcast.commentAsync(postingWif, parentAuthor, parentPermlink, author, permlink, '', newBody, jsonMetadata)
         .then(resp => {
           console.log("[commentsActions] resp=" + JSON.stringify(resp));
