@@ -1,19 +1,3 @@
 export default [
-  'initminer',
-  'initminer1',
-  'initminer2',
-  'initminer3',
-  'initminer4',
-  'initminer5',
-  'initminer6',
-  'initminer7',
-  'initminer8',
-  'initminer9',
-  'initminer10',
-  'initminer11',
-  'initminer12',
-  'initminer13',
-  'initminer14',
-  'initminer15',
-  'initminer16'
+  'smoke'
 ];
