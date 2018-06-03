@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import './Avatar.less';
 
 export function getAvatarURL(username, size = 100) {
-  return size > 64
-    ? `https://steemitimages.com/u/${username}/avatar`
-    : `https://steemitimages.com/u/${username}/avatar/small`;
+  // return size > 64
+  //   ? `https://steemitimages.com/u/${username}/avatar`
+  //   : `https://steemitimages.com/u/${username}/avatar/small`;
+
+  return `https://staging.smoke.io/profileimage/${username}`;
 }
 
 const Avatar = ({ username, size }) => {
