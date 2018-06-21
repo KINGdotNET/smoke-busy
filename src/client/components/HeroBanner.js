@@ -17,8 +17,8 @@ const HeroBanner = ({ visible, location, onCloseClick }) => {
         <div className="HeroBanner__container__content">
           <h1>
             <FormattedMessage
-              id="hero"
-              defaultMessage="Ensuring compensation for the creators of value"
+              id="hero_smoke"
+              defaultMessage="Smoke, Get Paid. Repeat."
             />
           </h1>
           <div className="HeroBanner__container__content__buttons">
