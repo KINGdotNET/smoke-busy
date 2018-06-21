@@ -53,7 +53,7 @@ const UserWalletSummary = ({
 }) => (
   <div className="UserWalletSummary">
     <div className="UserWalletSummary__item">
-      <i className="iconfont icon-steem UserWalletSummary__icon" />
+      <img src="/images/icons/black-white-icon-39x39.png" />
       <div className="UserWalletSummary__label">
         <FormattedMessage id="smoke" defaultMessage="Smoke" />
       </div>
