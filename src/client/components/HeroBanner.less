@@ -4,10 +4,9 @@
 .HeroBanner {
   position: relative;
   height: 240px;
-  background: url('/images/banner.png');
-  background-color: @primary-color;
-  background-size: cover;
-  background-position: center;
+  background: @green;
+  background: -webkit-linear-gradient(to right, @green, @green-light);
+  background: linear-gradient(to right, @green, @green-light);
 
   &__close {
     position: absolute;
@@ -35,7 +34,7 @@
     font-weight: bolder;
     font-size: 16px;
     padding: 8px 12px;
-    background-color: @white;
+    background-color: @green;
     transition: background-color 0.5s ease-in-out;
 
     &:link,
@@ -70,9 +69,9 @@
     }
 
     &:hover {
-      color: @blue-linkWater;
+      color: @white-darker;
       text-decoration: none;
-      border-color: @blue-linkWater;
+      border-color: @white-darker;
     }
   }
 
