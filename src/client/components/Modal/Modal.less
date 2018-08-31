@@ -1,0 +1,57 @@
+@import (reference) '../../styles/custom.less';
+
+.backdropStyle {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  margin-top: 55px;
+}
+
+.modalStyle {
+  background-color: @white-darker;
+  border-radius: 5px;
+  max-width: 800px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+}
+
+.Close {
+  top: 55px;
+  position: fixed;
+}
+
+.Close__button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.15;
+  padding: 0 15px;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  color: @white;
+  background-color: #3e3e3e;
+  width: 100% !important;
+  height: 46px !important;
+  font-size: 16px !important;
+  -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  border-color: #252525 !important;
+}

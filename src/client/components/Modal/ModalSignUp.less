@@ -1,0 +1,37 @@
+@import (reference) '../../styles/custom.less';
+
+.Modal__button {
+  .btn;
+  .btn-default;
+  .btn-ghost;
+
+  width: 100% !important;
+  height: 46px !important;
+  font-size: 16px !important;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  border: none !important;
+  background: @white;
+  font-weight: 700;
+  color: @grey-empress;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @grey-mortar;
+    background: @white-darker;
+  }
+}
+
+.Modal__about-bold {
+  color: @grey-mortar;
+  font-weight: 800;
+  padding: 30px 20px 30px 20px;
+  white-space: initial;
+}
+
+.Modal__about {
+  color: @grey-mortar;
+  padding: 30px 20px 30px 20px;
+  white-space: initial;
+}

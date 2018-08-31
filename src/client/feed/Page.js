@@ -55,12 +55,12 @@ class Page extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>Busy</title>
+          <title>Smoke.io</title>
           <meta name="robots" content={robots} />
         </Helmet>
         <ScrollToTop />
         <ScrollToTopOnMount />
-        <HeroBannerContainer />
+        {/* <HeroBannerContainer /> */}
         <div className="shifted">
           <div className="feed-layout container">
             <Affix className="leftContainer" stickPosition={77}>
