@@ -349,9 +349,8 @@ class Topnav extends React.Component {
         <div className="topnav-layout">
           <div className={classNames('left', { 'Topnav__mobile-hidden': searchBarActive })}>
             <Link className="Topnav__brand" to="/">
-              <img src="/images/logo-brand.png" className="Topnav__brand-icon" />
+              <img src="/images/nav-logo.svg" className="Topnav__brand-icon" alt="smoke.io logo" />
             </Link>
-            <span className="Topnav__version">beta</span>
           </div>
           <div className={classNames('center', { mobileVisible: searchBarActive })}>
             <div className="Topnav__input-container">
