@@ -21,7 +21,7 @@ import PopoverMenu, { PopoverMenuItem } from '../PopoverMenu/PopoverMenu';
 import Notifications from './Notifications/Notifications';
 import LanguageSettings from './LanguageSettings';
 import './Topnav.less';
-import ModalSignUp from '../Modal/ModalSignUp';
+// import ModalSignUp from '../Modal/ModalSignUp';
 
 @injectIntl
 @withRouter
@@ -126,7 +126,9 @@ class Topnav extends React.Component {
       >
         <Menu className="Topnav__menu-container__menu" mode="horizontal">
           <Menu.Item key="signup">
-            <ModalSignUp />
+            <a target="_blank" rel="noopener noreferrer" href={process.env.SIGNUP_URL}>
+              <FormattedMessage id="signup" defaultMessage="Sign up" />
+            </a>
           </Menu.Item>
           <Menu.Item key="divider" disabled>
             |
