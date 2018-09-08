@@ -7,7 +7,7 @@ export function getAvatarURL(username, size = 100) {
   //   ? `https://steemitimages.com/u/${username}/avatar`
   //   : `https://steemitimages.com/u/${username}/avatar/small`;
 
-  return `https://staging.smoke.io/profileimage/${username}`;
+  return `https://testnet.smoke.io/profileimage/${username}`;
 }
 
 const Avatar = ({ username, size }) => {

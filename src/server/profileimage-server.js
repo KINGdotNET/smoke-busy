@@ -12,7 +12,7 @@ const myCache = new NodeCache( { stdTTL: 3600, checkperiod: 3600 } );
 let app = express();
 
 const port = 7856;
-const image_proxy_url = "https://testnet.smoke.io/smokeimageproxy/64/";
+const image_proxy_url = "https://testnet.smoke.io/smokeimageproxy/64x64/";
 const profile_image_default = "https://testnet.smoke.io/images/smoke_user.png";
 
 serverStart = () => {
