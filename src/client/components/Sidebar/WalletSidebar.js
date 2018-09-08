@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import { openTransfer } from '../../wallet/walletActions';
 import { getAuthenticatedUser } from '../../reducers';
-import { STEEM, SBD } from '../../../common/constants/cryptos';
+import { SMOKE } from '../../../common/constants/cryptos';
 import Action from '../Button/Action';
 import ClaimRewardsBlock from '../../wallet/ClaimRewardsBlock';
 import CryptoTrendingCharts from './CryptoTrendingCharts';

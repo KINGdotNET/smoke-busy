@@ -7,7 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ReceiveTransaction
     amount={
       <span>
-        0 STEEM
+        0 SMOKE
       </span>
     }
     from="hellosteem"
@@ -64,7 +64,7 @@ ShallowWrapper {
             >
               + 
               <span>
-                0 STEEM
+                0 SMOKE
               </span>
             </span>
           </div>
@@ -161,7 +161,7 @@ ShallowWrapper {
               >
                 + 
                 <span>
-                  0 STEEM
+                  0 SMOKE
                 </span>
               </span>
             </div>,
@@ -228,7 +228,7 @@ ShallowWrapper {
                 >
                   + 
                   <span>
-                    0 STEEM
+                    0 SMOKE
                   </span>
                 </span>,
               ],
@@ -268,7 +268,7 @@ ShallowWrapper {
                   "children": Array [
                     "+ ",
                     <span>
-                      0 STEEM
+                      0 SMOKE
                     </span>,
                   ],
                   "className": "UserWalletTransactions__received",
@@ -281,10 +281,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "0 STEEM",
+                      "children": "0 SMOKE",
                     },
                     "ref": null,
-                    "rendered": "0 STEEM",
+                    "rendered": "0 SMOKE",
                     "type": "span",
                   },
                 ],
@@ -434,7 +434,7 @@ ShallowWrapper {
               >
                 + 
                 <span>
-                  0 STEEM
+                  0 SMOKE
                 </span>
               </span>
             </div>
@@ -531,7 +531,7 @@ ShallowWrapper {
                 >
                   + 
                   <span>
-                    0 STEEM
+                    0 SMOKE
                   </span>
                 </span>
               </div>,
@@ -598,7 +598,7 @@ ShallowWrapper {
                   >
                     + 
                     <span>
-                      0 STEEM
+                      0 SMOKE
                     </span>
                   </span>,
                 ],
@@ -638,7 +638,7 @@ ShallowWrapper {
                     "children": Array [
                       "+ ",
                       <span>
-                        0 STEEM
+                        0 SMOKE
                       </span>,
                     ],
                     "className": "UserWalletTransactions__received",
@@ -651,10 +651,10 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "0 STEEM",
+                        "children": "0 SMOKE",
                       },
                       "ref": null,
-                      "rendered": "0 STEEM",
+                      "rendered": "0 SMOKE",
                       "type": "span",
                     },
                   ],

@@ -5,18 +5,18 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <UserWalletSummary
-    estAccountValue="100.00 STEEM"
+    estAccountValue="100.00 SMOKE"
     loading={false}
     sbdRate={1}
     steemRate={1}
     steemRateLoading={false}
-    totalVestingFundSteem="100 STEEM"
-    totalVestingShares="100 STEEM"
+    totalVestingFundSteem="100 SMOKE"
+    totalVestingShares="100 SMOKE"
     user={
       Object {
         "balance": "100",
-        "savings_balance": "100 STEEM",
-        "savings_sbd_balance": "1000 STEEM",
+        "savings_balance": "100 SMOKE",
+        "savings_sbd_balance": "1000 SMOKE",
         "vesting_shares": "0",
       }
     }
@@ -56,7 +56,7 @@ ShallowWrapper {
               <FormattedNumber
                 value={100}
               />
-               STEEM
+               SMOKE
             </span>
           </div>
         </div>,
@@ -153,7 +153,7 @@ ShallowWrapper {
               <FormattedNumber
                 value={100}
               />
-               STEEM, 
+               SMOKE,
               <FormattedNumber
                 value={1000}
               />
@@ -214,7 +214,7 @@ ShallowWrapper {
                 <FormattedNumber
                   value={100}
                 />
-                 STEEM
+                 SMOKE
               </span>
             </div>,
           ],
@@ -270,7 +270,7 @@ ShallowWrapper {
                 <FormattedNumber
                   value={100}
                 />
-                 STEEM
+                 SMOKE
               </span>,
               "className": "UserWalletSummary__value",
             },
@@ -284,7 +284,7 @@ ShallowWrapper {
                   <FormattedNumber
                     value={100}
                   />,
-                  " STEEM",
+                  " SMOKE",
                 ],
               },
               "ref": null,
@@ -300,7 +300,7 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                " STEEM",
+                " SMOKE",
               ],
               "type": "span",
             },
@@ -685,7 +685,7 @@ ShallowWrapper {
                 <FormattedNumber
                   value={100}
                 />
-                 STEEM, 
+                 SMOKE,
                 <FormattedNumber
                   value={1000}
                 />
@@ -745,7 +745,7 @@ ShallowWrapper {
                 <FormattedNumber
                   value={100}
                 />
-                 STEEM, 
+                 SMOKE,
                 <FormattedNumber
                   value={1000}
                 />
@@ -763,7 +763,7 @@ ShallowWrapper {
                   <FormattedNumber
                     value={100}
                   />,
-                  " STEEM, ",
+                  " SMOKE, ",
                   <FormattedNumber
                     value={1000}
                   />,
@@ -783,7 +783,7 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                " STEEM, ",
+                " SMOKE, ",
                 Object {
                   "instance": null,
                   "key": undefined,
@@ -932,7 +932,7 @@ ShallowWrapper {
                 <FormattedNumber
                   value={100}
                 />
-                 STEEM
+                 SMOKE
               </span>
             </div>
           </div>,
@@ -1029,7 +1029,7 @@ ShallowWrapper {
                 <FormattedNumber
                   value={100}
                 />
-                 STEEM, 
+                 SMOKE,
                 <FormattedNumber
                   value={1000}
                 />
@@ -1090,7 +1090,7 @@ ShallowWrapper {
                   <FormattedNumber
                     value={100}
                   />
-                   STEEM
+                   SMOKE
                 </span>
               </div>,
             ],
@@ -1146,7 +1146,7 @@ ShallowWrapper {
                   <FormattedNumber
                     value={100}
                   />
-                   STEEM
+                   SMOKE
                 </span>,
                 "className": "UserWalletSummary__value",
               },
@@ -1160,7 +1160,7 @@ ShallowWrapper {
                     <FormattedNumber
                       value={100}
                     />,
-                    " STEEM",
+                    " SMOKE",
                   ],
                 },
                 "ref": null,
@@ -1176,7 +1176,7 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  " STEEM",
+                  " SMOKE",
                 ],
                 "type": "span",
               },
@@ -1561,7 +1561,7 @@ ShallowWrapper {
                   <FormattedNumber
                     value={100}
                   />
-                   STEEM, 
+                   SMOKE,
                   <FormattedNumber
                     value={1000}
                   />
@@ -1621,7 +1621,7 @@ ShallowWrapper {
                   <FormattedNumber
                     value={100}
                   />
-                   STEEM, 
+                   SMOKE,
                   <FormattedNumber
                     value={1000}
                   />
@@ -1639,7 +1639,7 @@ ShallowWrapper {
                     <FormattedNumber
                       value={100}
                     />,
-                    " STEEM, ",
+                    " SMOKE, ",
                     <FormattedNumber
                       value={1000}
                     />,
@@ -1659,7 +1659,7 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  " STEEM, ",
+                  " SMOKE, ",
                   Object {
                     "instance": null,
                     "key": undefined,

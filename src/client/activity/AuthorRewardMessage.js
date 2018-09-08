@@ -12,7 +12,6 @@ const AuthorRewardMessage = ({
   totalVestingFundSteem,
 }) => {
   const rewards = [
-    { payout: actionDetails.sbd_payout, currency: 'SBD' },
     { payout: actionDetails.steem_payout, currency: 'SMOKE' },
     { payout: actionDetails.vesting_payout, currency: 'SP' },
   ];

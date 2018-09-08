@@ -7,8 +7,7 @@ describe('(Component) ClaimReward', () => {
     it('renders and matches snapshot', () => {
       const props = {
         timestamp: '0',
-        rewardSteem: '0 STEEM',
-        rewardSbd: '0 SBD',
+        rewardSteem: '0 SMOKE',
         rewardVests: '0 SP',
         totalVestingShares: '0',
         totalVestingFundSteem: '0',

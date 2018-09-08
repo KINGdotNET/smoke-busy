@@ -28,7 +28,7 @@ const Payout = ({ intl, post }) => {
           <BTooltip
             title={intl.formatMessage({
               id: 'reward_option_100',
-              defaultMessage: '100% Steem Power',
+              defaultMessage: '100% Smoke Power',
             })}
           >
             <i className="iconfont icon-flashlight" />

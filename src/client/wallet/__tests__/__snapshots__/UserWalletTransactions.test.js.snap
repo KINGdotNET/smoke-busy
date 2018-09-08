@@ -15,7 +15,7 @@ ShallowWrapper {
           "op": Array [
             "transfer_to_vesting",
             Object {
-              "amount": "100 STEEM",
+              "amount": "100 SMOKE",
             },
           ],
           "timestamp": "0",
@@ -24,7 +24,7 @@ ShallowWrapper {
           "op": Array [
             "transfer",
             Object {
-              "amount": "100 STEEM",
+              "amount": "100 SMOKE",
               "from": "hellosteem1",
               "memo": "transfer memo",
             },
@@ -87,7 +87,7 @@ ShallowWrapper {
               "op": Array [
                 "transfer_to_vesting",
                 Object {
-                  "amount": "100 STEEM",
+                  "amount": "100 SMOKE",
                 },
               ],
               "timestamp": "0",
@@ -103,7 +103,7 @@ ShallowWrapper {
               "op": Array [
                 "transfer",
                 Object {
-                  "amount": "100 STEEM",
+                  "amount": "100 SMOKE",
                   "from": "hellosteem1",
                   "memo": "transfer memo",
                 },
@@ -134,7 +134,7 @@ ShallowWrapper {
                   "op": Array [
                     "transfer_to_vesting",
                     Object {
-                      "amount": "100 STEEM",
+                      "amount": "100 SMOKE",
                     },
                   ],
                   "timestamp": "0",
@@ -150,7 +150,7 @@ ShallowWrapper {
                   "op": Array [
                     "transfer",
                     Object {
-                      "amount": "100 STEEM",
+                      "amount": "100 SMOKE",
                       "from": "hellosteem1",
                       "memo": "transfer memo",
                     },
@@ -211,7 +211,7 @@ ShallowWrapper {
               "op": Array [
                 "transfer_to_vesting",
                 Object {
-                  "amount": "100 STEEM",
+                  "amount": "100 SMOKE",
                 },
               ],
               "timestamp": "0",
@@ -233,7 +233,7 @@ ShallowWrapper {
               "op": Array [
                 "transfer",
                 Object {
-                  "amount": "100 STEEM",
+                  "amount": "100 SMOKE",
                   "from": "hellosteem1",
                   "memo": "transfer memo",
                 },
@@ -297,7 +297,7 @@ ShallowWrapper {
                 "op": Array [
                   "transfer_to_vesting",
                   Object {
-                    "amount": "100 STEEM",
+                    "amount": "100 SMOKE",
                   },
                 ],
                 "timestamp": "0",
@@ -313,7 +313,7 @@ ShallowWrapper {
                 "op": Array [
                   "transfer",
                   Object {
-                    "amount": "100 STEEM",
+                    "amount": "100 SMOKE",
                     "from": "hellosteem1",
                     "memo": "transfer memo",
                   },
@@ -344,7 +344,7 @@ ShallowWrapper {
                     "op": Array [
                       "transfer_to_vesting",
                       Object {
-                        "amount": "100 STEEM",
+                        "amount": "100 SMOKE",
                       },
                     ],
                     "timestamp": "0",
@@ -360,7 +360,7 @@ ShallowWrapper {
                     "op": Array [
                       "transfer",
                       Object {
-                        "amount": "100 STEEM",
+                        "amount": "100 SMOKE",
                         "from": "hellosteem1",
                         "memo": "transfer memo",
                       },
@@ -421,7 +421,7 @@ ShallowWrapper {
                 "op": Array [
                   "transfer_to_vesting",
                   Object {
-                    "amount": "100 STEEM",
+                    "amount": "100 SMOKE",
                   },
                 ],
                 "timestamp": "0",
@@ -443,7 +443,7 @@ ShallowWrapper {
                 "op": Array [
                   "transfer",
                   Object {
-                    "amount": "100 STEEM",
+                    "amount": "100 SMOKE",
                     "from": "hellosteem1",
                     "memo": "transfer memo",
                   },

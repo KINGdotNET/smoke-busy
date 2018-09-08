@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import { Form, Input, Radio, Modal } from 'antd';
-import { STEEM, SBD } from '../../common/constants/cryptos';
+import { SMOKE } from '../../common/constants/cryptos';
 import steemAPI from '../steemAPI';
 import { getCryptoPriceHistory } from '../app/appActions';
 import { closeTransfer } from './walletActions';
@@ -59,27 +59,21 @@ export default class Transfer extends React.Component {
   static maxAccountLength = 16;
   static exchangeRegex = /^(bittrex|blocktrades|poloniex|changelly|openledge|shapeshiftio)$/;
   static CURRENCIES = {
-    STEEM: 'SMOKE',
-    SBD: 'SBD',
+    SMOKE: 'SMOKE',
   };
 
   state = {
-    currency: Transfer.CURRENCIES.STEEM,
+    currency: Transfer.CURRENCIES.SMOKE,
     oldAmount: undefined,
   };
 
   componentDidMount() {
-    const { cryptosPriceHistory } = this.props;
-    const currentSteemRate = _.get(cryptosPriceHistory, 'STEEM.priceDetails.currentUSDPrice', null);
-    const currentSBDRate = _.get(cryptosPriceHistory, 'SBD.priceDetails.currentUSDPrice', null);
-
-    if (_.isNull(currentSteemRate)) {
-      this.props.getCryptoPriceHistory(STEEM.symbol);
-    }
-
-    if (_.isNull(currentSBDRate)) {
-      this.props.getCryptoPriceHistory(SBD.symbol);
-    }
+    // const { cryptosPriceHistory } = this.props;
+    // // const currentSteemRate = _.get(cryptosPriceHistory, 'STEEM.priceDetails.currentUSDPrice', null);
+    //
+    // if (_.isNull(currentSteemRate)) {
+    //   this.props.getCryptoPriceHistory(SMOKE.symbol);
+    // }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -88,11 +82,11 @@ export default class Transfer extends React.Component {
       form.setFieldsValue({
         to,
         amount: undefined,
-        currency: STEEM.symbol,
+        currency: SMOKE.symbol,
         memo: undefined,
       });
       this.setState({
-        currency: STEEM.symbol,
+        currency: SMOKE.symbol,
       });
     }
   }
@@ -100,19 +94,16 @@ export default class Transfer extends React.Component {
   getUSDValue() {
     const { cryptosPriceHistory, intl } = this.props;
     const { currency, oldAmount } = this.state;
-    const currentSteemRate = _.get(cryptosPriceHistory, 'STEEM.priceDetails.currentUSDPrice', null);
-    const currentSBDRate = _.get(cryptosPriceHistory, 'SBD.priceDetails.currentUSDPrice', null);
-    const steemRateLoading = _.isNull(currentSteemRate) || _.isNull(currentSBDRate);
+    // const currentSteemRate = _.get(cryptosPriceHistory, 'SMOKE.priceDetails.currentUSDPrice', null);
+    const steemRateLoading = false;
     const parsedAmount = parseFloat(oldAmount);
     const invalidAmount = parsedAmount <= 0 || _.isNaN(parsedAmount);
     let amount = 0;
 
     if (steemRateLoading || invalidAmount) return '';
 
-    if (currency === STEEM.symbol) {
-      amount = parsedAmount * parseFloat(currentSteemRate);
-    } else {
-      amount = parsedAmount * parseFloat(currentSBDRate);
+    if (currency === SMOKE.symbol) {
+      amount = parsedAmount;
     }
 
     return `~ $${intl.formatNumber(amount, {
@@ -267,8 +258,7 @@ export default class Transfer extends React.Component {
       return;
     }
 
-    const selectedBalance =
-      this.state.currency === Transfer.CURRENCIES.STEEM ? user.balance : user.sbd_balance;
+    const selectedBalance = user.balance;
 
     if (authenticated && currentValue !== 0 && currentValue > parseFloat(selectedBalance)) {
       callback([
@@ -285,14 +275,13 @@ export default class Transfer extends React.Component {
     const { intl, visible, authenticated, user } = this.props;
     const { getFieldDecorator } = this.props.form;
 
-    const balance =
-      this.state.currency === Transfer.CURRENCIES.STEEM ? user.balance : user.sbd_balance;
+    const balance = user.balance;
 
     const currencyPrefix = getFieldDecorator('currency', {
       initialValue: this.state.currency,
     })(
       <Radio.Group onChange={this.handleCurrencyChange} className="Transfer__amount__type">
-        <Radio.Button value={Transfer.CURRENCIES.STEEM}>{Transfer.CURRENCIES.STEEM}</Radio.Button>
+        <Radio.Button value={Transfer.CURRENCIES.SMOKE}>{Transfer.CURRENCIES.SMOKE}</Radio.Button>
       </Radio.Group>,
     );
 

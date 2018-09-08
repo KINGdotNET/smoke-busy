@@ -5,8 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ClaimReward
-    rewardSbd="0 SBD"
-    rewardSteem="0 STEEM"
+    rewardSteem="0 SMOKE"
     rewardVests="0 SP"
     timestamp="0"
     totalVestingFundSteem="0"

@@ -9,8 +9,6 @@ describe('(Component) UserWalletSummary', () => {
         user: {
           balance: '100',
           vesting_shares: '0',
-          savings_balance: '100 STEEM',
-          savings_sbd_balance: '1000 STEEM',
         },
         estAccountValue: '100.00 STEEM',
         totalVestingShares: '100 STEEM',
