@@ -18,7 +18,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
         ENABLE_LOGGER: JSON.stringify(process.env.ENABLE_LOGGER),
-        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
+        STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL || 'https://testnet.smoke.io/wss'),
         IS_BROWSER: JSON.stringify(true),
         SIGNUP_URL: JSON.stringify(process.env.SIGNUP_URL || 'https://signup.steemit.com/?ref=busy'),
       },

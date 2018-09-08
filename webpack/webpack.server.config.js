@@ -43,7 +43,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.STEEMCONNECT_HOST': JSON.stringify(process.env.STEEMCONNECT_HOST),
-      'process.env.STEEMJS_URL': JSON.stringify(process.env.STEEMJS_URL || 'https://staging.smoke.io/ws'),
+      'process.env.STEEMJS_URL': JSON.stringify(process.env.STEEMJS_URL || 'https://testnet.smoke.io/wss'),
       'process.env.IS_BROWSER': JSON.stringify(false),
       'process.env.SIGNUP_URL': JSON.stringify(process.env.SIGNUP_URL),
     }),
