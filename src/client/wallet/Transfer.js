@@ -6,14 +6,12 @@ import _ from 'lodash';
 import { Form, Input, Radio, Modal } from 'antd';
 import { SMOKE } from '../../common/constants/cryptos';
 import steemAPI from '../steemAPI';
-import { getCryptoPriceHistory } from '../app/appActions';
 import { closeTransfer } from './walletActions';
 import {
   getIsAuthenticated,
   getAuthenticatedUser,
   getIsTransferVisible,
   getTransferTo,
-  getCryptosPriceHistory,
 } from '../reducers';
 import './Transfer.less';
 
@@ -26,11 +24,9 @@ const InputGroup = Input.Group;
     to: getTransferTo(state),
     authenticated: getIsAuthenticated(state),
     user: getAuthenticatedUser(state),
-    cryptosPriceHistory: getCryptosPriceHistory(state),
   }),
   {
     closeTransfer,
-    getCryptoPriceHistory,
   },
 )
 @Form.create()
@@ -42,8 +38,6 @@ export default class Transfer extends React.Component {
     authenticated: PropTypes.bool.isRequired,
     user: PropTypes.shape().isRequired,
     form: PropTypes.shape().isRequired,
-    cryptosPriceHistory: PropTypes.shape().isRequired,
-    getCryptoPriceHistory: PropTypes.func.isRequired,
     closeTransfer: PropTypes.func,
   };
 
@@ -68,12 +62,7 @@ export default class Transfer extends React.Component {
   };
 
   componentDidMount() {
-    // const { cryptosPriceHistory } = this.props;
-    // // const currentSteemRate = _.get(cryptosPriceHistory, 'STEEM.priceDetails.currentUSDPrice', null);
-    //
-    // if (_.isNull(currentSteemRate)) {
-    //   this.props.getCryptoPriceHistory(SMOKE.symbol);
-    // }
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -92,7 +81,7 @@ export default class Transfer extends React.Component {
   }
 
   getUSDValue() {
-    const { cryptosPriceHistory, intl } = this.props;
+    const { intl } = this.props;
     const { currency, oldAmount } = this.state;
     // const currentSteemRate = _.get(cryptosPriceHistory, 'SMOKE.priceDetails.currentUSDPrice', null);
     const steemRateLoading = false;

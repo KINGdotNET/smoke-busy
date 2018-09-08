@@ -6,7 +6,6 @@ import { getIsAuthenticated, getRecommendations } from '../../reducers';
 import { getCryptoDetails } from '../../helpers/cryptosHelper';
 import { updateRecommendations } from '../../user/userActions';
 import InterestingPeople from './InterestingPeople';
-import CryptoTrendingCharts from './CryptoTrendingCharts';
 
 @connect(
   state => ({
@@ -35,11 +34,9 @@ class FeedSidebar extends React.Component {
     const { authenticated, recommendations } = this.props;
     const isAuthenticated = authenticated && recommendations.length > 0;
     const currentTag = _.get(this.props, 'match.params.tag', '');
-    const currentCrypto = getCryptoDetails(currentTag);
 
     return (
       <div>
-        {!_.isEmpty(currentCrypto) && <CryptoTrendingCharts cryptos={[currentTag]} />}
         {isAuthenticated && (
           <InterestingPeople
             users={recommendations}

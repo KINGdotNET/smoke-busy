@@ -20,7 +20,6 @@ import {
   getLoadingGlobalProperties,
   getLoadingMoreUsersAccountHistory,
   getUserHasMoreAccountHistory,
-  getCryptosPriceHistory,
 } from '../reducers';
 import {
   getGlobalProperties,
@@ -50,7 +49,6 @@ import { getAccount } from './usersActions';
         ? getAuthenticatedUserName(state)
         : getUser(state, ownProps.match.params.name).name,
     ),
-    cryptosPriceHistory: getCryptosPriceHistory(state),
   }),
   {
     getGlobalProperties,
@@ -71,7 +69,6 @@ class Wallet extends Component {
     getAccount: PropTypes.func.isRequired,
     usersTransactions: PropTypes.shape().isRequired,
     usersAccountHistory: PropTypes.shape().isRequired,
-    cryptosPriceHistory: PropTypes.shape().isRequired,
     usersAccountHistoryLoading: PropTypes.bool.isRequired,
     loadingGlobalProperties: PropTypes.bool.isRequired,
     loadingMoreUsersAccountHistory: PropTypes.bool.isRequired,
@@ -122,7 +119,6 @@ class Wallet extends Component {
       loadingMoreUsersAccountHistory,
       userHasMoreActions,
       usersAccountHistory,
-      cryptosPriceHistory,
     } = this.props;
     const userKey = getUserDetailsKey(user.name);
     const transactions = _.get(usersTransactions, userKey, []);
@@ -138,7 +134,7 @@ class Wallet extends Component {
           totalVestingShares={totalVestingShares}
           totalVestingFundSteem={totalVestingFundSteem}
           loadingGlobalProperties={loadingGlobalProperties}
-          steemRate={currentSteemRate}
+          steemRate={1}
           steemRateLoading={steemRateLoading}
         />
         {transactions.length === 0 && usersAccountHistoryLoading ? (

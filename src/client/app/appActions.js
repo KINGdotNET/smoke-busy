@@ -59,29 +59,6 @@ export const getTrendingTopics = () => (dispatch, getState, { steemAPI }) => {
   });
 };
 
-export const getCryptoPriceHistory = (symbol, refresh = false) => dispatch => {
-  if (refresh) {
-    dispatch(refreshCryptoPriceHistory(symbol));
-  }
-  dispatch({
-    type: GET_CRYPTO_PRICE_HISTORY.ACTION,
-    payload: {
-      promise: Promise.all([
-        fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=USD&limit=6`).then(res => res.json()),
-        fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=BTC&limit=6`).then(res => res.json()),
-      ]).then(response => {
-        const usdPriceHistory = _.get(response, 0, {});
-        const btcPriceHistory = _.get(response, 1, {});
-        return {
-          usdPriceHistory,
-          btcPriceHistory,
-          symbol,
-        };
-      }),
-    },
-  });
-};
-
 export const ADD_NEW_NOTIFICATION = '@user/ADD_NEW_NOTIFICATION';
 export const addNewNotification = createAction(ADD_NEW_NOTIFICATION);
 

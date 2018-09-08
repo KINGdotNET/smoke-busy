@@ -13,9 +13,8 @@ const initialState = {
   trendingTopics: [],
   rewardFund: {},
   bannerClosed: false,
-  appUrl: 'https://busy.org',
+  appUrl: 'https://smoke.io',
   usedLocale: 'en',
-  cryptosPriceHistory: {},
   showPostModal: false,
   currentShownPost: {},
 };
@@ -91,10 +90,6 @@ export default (state = initialState, action) => {
     case appTypes.REFRESH_CRYPTO_PRICE_HISTORY:
       return {
         ...state,
-        cryptosPriceHistory: {
-          ...state.cryptosPriceHistory,
-          [action.payload]: null,
-        },
       };
     case appTypes.GET_CRYPTO_PRICE_HISTORY.SUCCESS: {
       const { symbol, usdPriceHistory, btcPriceHistory } = action.payload;
@@ -109,15 +104,6 @@ export default (state = initialState, action) => {
 
       return {
         ...state,
-        cryptosPriceHistory: {
-          ...state.cryptosPriceHistory,
-          [symbol]: {
-            usdPriceHistory: usdPriceHistoryByClose,
-            priceDetails,
-            btcAPIError,
-            usdAPIError,
-          },
-        },
       };
     }
     case appTypes.SHOW_POST_MODAL:
@@ -145,6 +131,5 @@ export const getIsFetching = state => state.isFetching;
 export const getIsBannerClosed = state => state.bannerClosed;
 export const getAppUrl = state => state.appUrl;
 export const getUsedLocale = state => state.usedLocale;
-export const getCryptosPriceHistory = state => state.cryptosPriceHistory;
 export const getShowPostModal = state => state.showPostModal;
 export const getCurrentShownPost = state => state.currentShownPost;

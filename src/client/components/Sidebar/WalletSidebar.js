@@ -8,7 +8,6 @@ import { getAuthenticatedUser } from '../../reducers';
 import { SMOKE } from '../../../common/constants/cryptos';
 import Action from '../Button/Action';
 import ClaimRewardsBlock from '../../wallet/ClaimRewardsBlock';
-import CryptoTrendingCharts from './CryptoTrendingCharts';
 
 @withRouter
 @injectIntl
