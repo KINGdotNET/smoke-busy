@@ -1,6 +1,6 @@
 import { Client } from 'busyjs';
 
-const client = new Client("wss://staging.smoke.io/ws");
+const client = new Client("wss://testnet.smoke.io/wss");
 
 client.sendAsync = (message, params) =>
   new Promise((resolve, reject) => {

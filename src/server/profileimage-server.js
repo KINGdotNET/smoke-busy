@@ -2,9 +2,9 @@
 let express = require('express');
 
 let steem = require('steem');
-steem.api.setOptions({url: 'https://staging.smoke.io/ws'});
-steem.config.set('address_prefix', 'SMK');
-steem.config.set('chain_id', 'a66e00caa50e6817bbe24e927bf48c5d4ba1b33f36bdbb5fa262a04012c4e3ee');
+// steem.api.setOptions({url: 'https://testnet.smoke.io/wss'});
+// steem.config.set('address_prefix', 'SMK');
+// steem.config.set('chain_id', 'a66e00caa50e6817bbe24e927bf48c5d4ba1b33f36bdbb5fa262a04012c4e3ee');
 
 const NodeCache = require( "node-cache" );
 const myCache = new NodeCache( { stdTTL: 3600, checkperiod: 3600 } );
